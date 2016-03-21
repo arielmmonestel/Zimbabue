@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:text="2 Jugadores"
+        android:id="@+id/Jugador2"
+        android:background="@drawable/btn_circle_azul"
+        android:textSize="24dp"
+        android:textColor="#ffffff"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:text="3 Jugadores"
+        android:id="@+id/Jugador3"
+        android:background="@drawable/btn_circle_verde"
+        android:textSize="24dp"
+        android:textColor="#ffffff"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:text="4 Jugadores"
+        android:id="@+id/Jugador4"
+        android:background="@drawable/btn_circle_red"
+        android:textSize="24dp"
+        android:textColor="#ffffff"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+</LinearLayout>
