@@ -9,4 +9,26 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".Pantalla_Inicio">
 
+    <Button
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:text="@string/botonJugar"
+        android:id="@+id/buttonJugar"
+        android:background="@drawable/btn_circle_anaranjado"
+        android:textSize="30dp"
+        android:textColor="#ffffff"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/botonAyuda"
+        android:id="@+id/buttonAyuda"
+        android:background="@drawable/btn_circle_anaranjado_small"
+        android:textColor="#ffffff"
+        android:layout_below="@+id/buttonJugar"
+        android:layout_toEndOf="@+id/buttonJugar" />
+
 </RelativeLayout>
