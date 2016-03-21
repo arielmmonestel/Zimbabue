@@ -33,6 +33,7 @@ public class Cant_Jugadores extends Activity {
 
                     @Override
                     public void onAnimationEnd(Animation animation) {
+                        startActivity(new Intent(Cant_Jugadores.this, Seleccionar_Mundo.class));
                         finish();
                     }
 
@@ -57,6 +58,7 @@ public class Cant_Jugadores extends Activity {
 
                     @Override
                     public void onAnimationEnd(Animation animation) {
+                        startActivity(new Intent(Cant_Jugadores.this, Seleccionar_Mundo.class));
                         finish();
                     }
 
@@ -81,6 +83,7 @@ public class Cant_Jugadores extends Activity {
 
                     @Override
                     public void onAnimationEnd(Animation animation) {
+                        startActivity(new Intent(Cant_Jugadores.this, Seleccionar_Mundo.class));
                         finish();
                     }
 
