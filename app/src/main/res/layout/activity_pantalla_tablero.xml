@@ -55,7 +55,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="J1"
-            android:id="@+id/textView"
+            android:id="@+id/textViewSelectMundo"
             android:layout_centerVertical="true"
             android:layout_alignStart="@+id/cuadroJugador1"
             android:layout_marginLeft="15dp"
@@ -93,7 +93,7 @@
             android:id="@+id/textView4"
             android:layout_marginLeft="15dp"
             android:textSize="50dp"
-            android:layout_alignTop="@+id/textView"
+            android:layout_alignTop="@+id/textViewSelectMundo"
             android:layout_alignStart="@+id/cuadroJugador4" />
 
 

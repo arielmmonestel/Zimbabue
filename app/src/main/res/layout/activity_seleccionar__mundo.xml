@@ -15,7 +15,8 @@
         android:text="+"
         android:id="@+id/buttonSumas"
         android:layout_alignTop="@+id/buttonRestas"
-        android:layout_toStartOf="@+id/buttonRestas" />
+        android:layout_toStartOf="@+id/buttonRestas"
+        android:background="#69ffffff" />
 
     <Button
         android:layout_width="180dp"
@@ -23,7 +24,8 @@
         android:text="-"
         android:id="@+id/buttonRestas"
         android:layout_above="@+id/buttonDivision"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:background="#69ffffff" />
 
     <Button
         android:layout_width="180dp"
@@ -31,7 +33,8 @@
         android:text="x"
         android:id="@+id/buttonMultiplicacion"
         android:layout_alignTop="@+id/buttonDivision"
-        android:layout_alignEnd="@+id/buttonSumas" />
+        android:layout_alignEnd="@+id/buttonSumas"
+        android:background="#69ffffff" />
 
     <Button
         android:layout_width="180dp"
@@ -39,14 +42,15 @@
         android:id="@+id/buttonDivision"
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/buttonRestas"
-        android:text="÷" />
+        android:text="÷"
+        android:background="#69ffffff" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="@string/SeleccionarMundo"
-        android:id="@+id/textView"
+        android:id="@+id/textViewSelectMundo"
         android:textSize="19dp"
         android:layout_above="@+id/buttonSumas"
         android:layout_alignParentStart="false"
