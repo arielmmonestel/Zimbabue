@@ -20,7 +20,7 @@ public class Seleccionar_Mundo extends Activity {
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         // TODO Auto-generated method stub
         if (keyCode == event.KEYCODE_BACK) {
-            startActivity(new Intent(Seleccionar_Mundo.this, Pantalla_Inicio.class));
+            startActivity(new Intent(Seleccionar_Mundo.this, Cant_Jugadores.class));
         }
         return super.onKeyDown(keyCode, event);
     }

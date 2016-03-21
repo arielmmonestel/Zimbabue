@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.animation.Animation;
@@ -94,6 +95,16 @@ public class Cant_Jugadores extends Activity {
                 });
             }
         });
+
+
+    }
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        // TODO Auto-generated method stub
+        if (keyCode == event.KEYCODE_BACK) {
+            startActivity(new Intent(Cant_Jugadores.this, Pantalla_Inicio.class));
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }
 
