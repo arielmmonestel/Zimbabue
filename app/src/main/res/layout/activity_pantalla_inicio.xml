@@ -7,7 +7,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".Pantalla_Inicio">
+    tools:context=".Pantalla_Inicio"
+    android:background="@drawable/pantallainicio">
 
     <Button
         android:layout_width="180dp"
@@ -28,7 +29,8 @@
         android:id="@+id/buttonAyuda"
         android:background="@drawable/btn_circle_anaranjado_small"
         android:textColor="#ffffff"
+        android:layout_marginTop="36dp"
         android:layout_below="@+id/buttonJugar"
-        android:layout_toEndOf="@+id/buttonJugar" />
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

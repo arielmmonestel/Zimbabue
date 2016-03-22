@@ -7,7 +7,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.electiva.zimbabue.Seleccionar_Mundo">
+    tools:context="com.example.electiva.zimbabue.Seleccionar_Mundo"
+    android:background="@drawable/mundos">
 
     <Button
         android:layout_width="180dp"
@@ -59,5 +60,6 @@
         android:layout_above="@+id/buttonSumas"
         android:layout_alignParentStart="false"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="30dp" />
+        android:layout_marginBottom="30dp"
+        android:textColor="#000000" />
 </RelativeLayout>
