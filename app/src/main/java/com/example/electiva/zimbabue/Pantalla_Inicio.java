@@ -46,7 +46,7 @@ public class Pantalla_Inicio extends Activity {
                     @Override
                     public void onAnimationEnd(Animation animation) {
                         finish();
-                        startActivity(new Intent(Pantalla_Inicio.this, Cant_Jugadores.class));
+                        startActivity(new Intent(Pantalla_Inicio.this, Seleccionar_Mundo.class));
                     }
 
                     @Override

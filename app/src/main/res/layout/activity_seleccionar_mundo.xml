@@ -16,7 +16,8 @@
         android:id="@+id/buttonSumas"
         android:layout_alignTop="@+id/buttonRestas"
         android:layout_toStartOf="@+id/buttonRestas"
-        android:background="#69ffffff" />
+        android:background="#69ffffff"
+        android:onClick="abrirMundoSuma" />
 
     <Button
         android:layout_width="180dp"
@@ -25,7 +26,8 @@
         android:id="@+id/buttonRestas"
         android:layout_above="@+id/buttonDivision"
         android:layout_alignParentEnd="true"
-        android:background="#69ffffff" />
+        android:background="#69ffffff"
+        android:onClick="abrirMundoResta"/>
 
     <Button
         android:layout_width="180dp"
@@ -34,7 +36,8 @@
         android:id="@+id/buttonMultiplicacion"
         android:layout_alignTop="@+id/buttonDivision"
         android:layout_alignEnd="@+id/buttonSumas"
-        android:background="#69ffffff" />
+        android:background="#69ffffff"
+        android:onClick="abrirMundoMultiplicacion"/>
 
     <Button
         android:layout_width="180dp"
@@ -43,7 +46,8 @@
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/buttonRestas"
         android:text="÷"
-        android:background="#69ffffff" />
+        android:background="#69ffffff"
+        android:onClick="abrirMundoDivision"/>
 
     <TextView
         android:layout_width="wrap_content"
