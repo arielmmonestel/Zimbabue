@@ -13,7 +13,8 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 
 public class Pantalla_Inicio extends Activity {
-    private MediaPlayer fondo;
+    private MediaPlayer musicaFondo;
+    public static boolean musicaEstaCorriendo = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,11 +22,16 @@ public class Pantalla_Inicio extends Activity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_pantalla_inicio);
-        fondo = MediaPlayer.create(this, R.raw.fondo);
+        musicaFondo = MediaPlayer.create(this, R.raw.fondo);
         final Button botonJugar= (Button) findViewById(R.id.buttonJugar);
         final Button botonAyuda = (Button) findViewById(R.id.buttonAyuda);
-        fondo.setLooping(true);
-        fondo.start();
+        if (!musicaEstaCorriendo) {
+
+            musicaFondo.setLooping(true);
+            musicaFondo.start();
+            musicaEstaCorriendo = true;
+            System.out.println("------------------------------HOLAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA---------------");
+        }
         botonJugar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -78,7 +84,25 @@ public class Pantalla_Inicio extends Activity {
             }
         });
     }
+
     @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+      //  musicaFondo.start();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+      //  musicaFondo.pause();
+    }
+
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         // TODO Auto-generated method stub
         if (keyCode == event.KEYCODE_BACK) {
@@ -91,27 +115,6 @@ public class Pantalla_Inicio extends Activity {
 
         }
         return super.onKeyDown(keyCode, event);
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        if (fondo.isPlaying()){
-            fondo.stop();
-            fondo.release();
-        }
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        fondo.start();
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        fondo.pause();
     }
 }
 

@@ -16,8 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Seleccionar_Mundo"></activity>
-        <activity android:name=".Cant_Jugadores"></activity>
+        <activity android:name=".Seleccionar_Mundo" />
+        <activity android:name=".Cant_Jugadores" />
         <activity android:name=".Pantalla_Tablero"></activity>
     </application>
 

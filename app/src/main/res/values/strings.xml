@@ -3,4 +3,7 @@
     <string name="botonJugar">¡JUGAR!</string>
     <string name="botonAyuda">AYUDA</string>
     <string name="SeleccionarMundo">Selecciona el mundo donde desees jugar</string>
+    <string name="djugadores">2 JUGADORES</string>
+    <string name="tjugadores">3 JUGADORES</string>
+    <string name="cjugadores">4 JUGADORES</string>
 </resources>

@@ -1,39 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <Button
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:text="2 Jugadores"
+        android:layout_width="105dp"
+        android:layout_height="105dp"
+        android:text="@string/djugadores"
         android:id="@+id/Jugador2"
         android:background="@drawable/btn_circle_azul"
-        android:textSize="24dp"
+        android:textSize="17dp"
         android:textColor="#ffffff"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignBottom="@+id/Jugador3"
+        android:layout_toStartOf="@+id/Jugador3"
+        android:layout_marginRight="10dp"/>
 
 
     <Button
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:text="3 Jugadores"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:text="@string/tjugadores"
         android:id="@+id/Jugador3"
         android:background="@drawable/btn_circle_verde"
-        android:textSize="24dp"
+        android:textSize="18dp"
         android:textColor="#ffffff"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 
     <Button
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:text="4 Jugadores"
+        android:layout_width="105dp"
+        android:layout_height="105dp"
+        android:text="@string/cjugadores"
         android:id="@+id/Jugador4"
         android:background="@drawable/btn_circle_red"
-        android:textSize="24dp"
+        android:textSize="17dp"
         android:textColor="#ffffff"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
-</LinearLayout>
+        android:layout_alignTop="@+id/Jugador3"
+        android:layout_toEndOf="@+id/Jugador3"
+        android:layout_marginLeft="10dp"/>
+</RelativeLayout>
+
+

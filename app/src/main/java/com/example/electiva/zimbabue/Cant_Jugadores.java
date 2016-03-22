@@ -103,8 +103,8 @@ public class Cant_Jugadores extends Activity {
         // TODO Auto-generated method stub
         if (keyCode == event.KEYCODE_BACK) {
             startActivity(new Intent(Cant_Jugadores.this, Pantalla_Inicio.class));
+            finish();
         }
         return super.onKeyDown(keyCode, event);
     }
 }
-
