@@ -13,7 +13,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 
 public class Pantalla_Inicio extends Activity {
-    private MediaPlayer musicaFondo;
+    public static MediaPlayer musicaFondo;
     public static boolean musicaEstaCorriendo = false;
 
     @Override
@@ -30,7 +30,7 @@ public class Pantalla_Inicio extends Activity {
             musicaFondo.setLooping(true);
             musicaFondo.start();
             musicaEstaCorriendo = true;
-            System.out.println("------------------------------HOLAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA---------------");
+
         }
         botonJugar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,7 +88,7 @@ public class Pantalla_Inicio extends Activity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-
+        //musicaFondo.release();
     }
 
     @Override
