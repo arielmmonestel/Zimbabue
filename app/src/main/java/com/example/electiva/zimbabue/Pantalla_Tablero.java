@@ -109,7 +109,9 @@ public class Pantalla_Tablero extends AppCompatActivity {
         }else if(hayCuatroEnLineaDiagonalBackSlash(listaJugadorEnTurno)){
             hayGanador=true;
             System.out.println("HAY GANADOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOR");
-        }else if(hayCuatroEnLineaDiagonalSlash(listaJugadorEnTurno)){
+        }
+
+        else if(hayCuatroEnLineaDiagonalSlash(listaJugadorEnTurno)){
             hayGanador=true;
             System.out.println("HAY GANADOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOR");
         }
@@ -134,7 +136,7 @@ public class Pantalla_Tablero extends AppCompatActivity {
                         indiceListaDiagonalSlash++;
                         j++;
                     }
-                    else if (listaDiagonalSlash.get(indiceListaDiagonalSlash) != listaJugadorEnTurno.get(j)-9){
+                    else if (listaDiagonalSlash.get(indiceListaDiagonalSlash) != listaJugadorEnTurno.get(j)-7){
                         j++;
                     }
                     if(listaDiagonalSlash.size()==4){
