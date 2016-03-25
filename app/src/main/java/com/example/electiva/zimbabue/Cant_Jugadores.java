@@ -34,7 +34,9 @@ public class Cant_Jugadores extends Activity {
 
                     @Override
                     public void onAnimationEnd(Animation animation) {
-                        startActivity(new Intent(Cant_Jugadores.this, Pantalla_Tablero.class));
+                        Intent intentDosJugadores = new Intent(Cant_Jugadores.this, Pantalla_Tablero.class);
+                        intentDosJugadores.putExtra("cantidadDeJugadores",2);
+                        startActivity(intentDosJugadores );
                         finish();
                     }
 
@@ -59,7 +61,9 @@ public class Cant_Jugadores extends Activity {
 
                     @Override
                     public void onAnimationEnd(Animation animation) {
-                        startActivity(new Intent(Cant_Jugadores.this, Pantalla_Tablero.class));
+                        Intent intentTresJugadores = new Intent(Cant_Jugadores.this, Pantalla_Tablero.class);
+                        intentTresJugadores.putExtra("cantidadDeJugadores",3);
+                        startActivity(intentTresJugadores);
                         finish();
                     }
 
@@ -84,7 +88,9 @@ public class Cant_Jugadores extends Activity {
 
                     @Override
                     public void onAnimationEnd(Animation animation) {
-                        startActivity(new Intent(Cant_Jugadores.this, Pantalla_Tablero.class));
+                        Intent intentCuatroJugadores = new Intent(Cant_Jugadores.this, Pantalla_Tablero.class);
+                        intentCuatroJugadores.putExtra("cantidadDeJugadores",4);
+                        startActivity(intentCuatroJugadores);
                         finish();
                     }
 
