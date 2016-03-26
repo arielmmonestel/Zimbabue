@@ -36,7 +36,8 @@ public class Cant_Jugadores extends Activity {
                     public void onAnimationEnd(Animation animation) {
                         Intent intentDosJugadores = new Intent(Cant_Jugadores.this, Pantalla_Tablero.class);
                         intentDosJugadores.putExtra("cantidadDeJugadores",2);
-                        startActivity(intentDosJugadores );
+                        startActivity(intentDosJugadores);
+                        Pantalla_Inicio.musicaFondo.stop();
                         finish();
                     }
 
@@ -64,6 +65,7 @@ public class Cant_Jugadores extends Activity {
                         Intent intentTresJugadores = new Intent(Cant_Jugadores.this, Pantalla_Tablero.class);
                         intentTresJugadores.putExtra("cantidadDeJugadores",3);
                         startActivity(intentTresJugadores);
+                        Pantalla_Inicio.musicaFondo.stop();
                         finish();
                     }
 
@@ -91,6 +93,7 @@ public class Cant_Jugadores extends Activity {
                         Intent intentCuatroJugadores = new Intent(Cant_Jugadores.this, Pantalla_Tablero.class);
                         intentCuatroJugadores.putExtra("cantidadDeJugadores",4);
                         startActivity(intentCuatroJugadores);
+                        Pantalla_Inicio.musicaFondo.pause();
                         finish();
                     }
 
@@ -108,7 +111,7 @@ public class Cant_Jugadores extends Activity {
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         // TODO Auto-generated method stub
         if (keyCode == event.KEYCODE_BACK) {
-            startActivity(new Intent(Cant_Jugadores.this, Pantalla_Inicio.class));
+            startActivity(new Intent(Cant_Jugadores.this, Seleccionar_Mundo.class));
             finish();
         }
         return super.onKeyDown(keyCode, event);

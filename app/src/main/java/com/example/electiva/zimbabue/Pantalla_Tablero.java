@@ -38,6 +38,7 @@ public class Pantalla_Tablero extends AppCompatActivity {
         // TODO Auto-generated method stub
         if (keyCode == event.KEYCODE_BACK) {
             startActivity(new Intent(Pantalla_Tablero.this, Pantalla_Inicio.class));
+           // Pantalla_Inicio.musicaFondo.release();
             finish();
         }
         return super.onKeyDown(keyCode, event);

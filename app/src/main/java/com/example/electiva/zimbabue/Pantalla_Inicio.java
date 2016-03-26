@@ -25,13 +25,13 @@ public class Pantalla_Inicio extends Activity {
         musicaFondo = MediaPlayer.create(this, R.raw.fondo);
         final Button botonJugar= (Button) findViewById(R.id.buttonJugar);
         final Button botonAyuda = (Button) findViewById(R.id.buttonAyuda);
-        if (!musicaEstaCorriendo) {
+        //if (!musicaEstaCorriendo) {
 
             musicaFondo.setLooping(true);
             musicaFondo.start();
             musicaEstaCorriendo = true;
 
-        }
+        //}
         botonJugar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -94,7 +94,9 @@ public class Pantalla_Inicio extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
-      //  musicaFondo.start();
+      if (!musicaFondo.isPlaying()){
+        musicaFondo.start();
+      }
     }
 
     @Override
@@ -106,6 +108,8 @@ public class Pantalla_Inicio extends Activity {
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         // TODO Auto-generated method stub
         if (keyCode == event.KEYCODE_BACK) {
+
+            musicaFondo.stop();
             finish();
             Intent intent = new Intent(Intent.ACTION_MAIN);
             intent.addCategory(Intent.CATEGORY_HOME);
