@@ -8,58 +8,60 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.electiva.zimbabue.Seleccionar_Mundo"
-    android:background="@drawable/mundos">
+    android:background="@drawable/mundo">
 
     <Button
-        android:layout_width="180dp"
-        android:layout_height="200dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:text="+"
         android:id="@+id/buttonSumas"
-        android:layout_alignTop="@+id/buttonRestas"
-        android:layout_toStartOf="@+id/buttonRestas"
-        android:background="#69ffffff"
-        android:onClick="abrirMundoSuma" />
+        android:background="@drawable/world1"
+        android:onClick="abrirMundoSuma"
+        android:layout_below="@+id/buttonMultiplicacion"
+        android:layout_alignEnd="@+id/buttonRestas"
+        android:layout_marginEnd="29dp" />
 
     <Button
-        android:layout_width="180dp"
-        android:layout_height="200dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:text="-"
         android:id="@+id/buttonRestas"
-        android:layout_above="@+id/buttonDivision"
-        android:layout_alignParentEnd="true"
-        android:background="#69ffffff"
-        android:onClick="abrirMundoResta"/>
+        android:background="@drawable/world2"
+        android:onClick="abrirMundoResta"
+        android:layout_below="@+id/textViewSelectMundo"
+        android:layout_alignEnd="@+id/textViewSelectMundo"
+        android:layout_marginTop="44dp" />
 
     <Button
-        android:layout_width="180dp"
-        android:layout_height="200dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:text="x"
         android:id="@+id/buttonMultiplicacion"
-        android:layout_alignTop="@+id/buttonDivision"
-        android:layout_alignEnd="@+id/buttonSumas"
-        android:background="#69ffffff"
-        android:onClick="abrirMundoMultiplicacion"/>
+        android:background="@drawable/world3"
+        android:onClick="abrirMundoMultiplicacion"
+        android:layout_below="@+id/buttonRestas"
+        android:layout_toStartOf="@+id/buttonSumas" />
 
     <Button
-        android:layout_width="180dp"
-        android:layout_height="200dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:id="@+id/buttonDivision"
+        android:background="@drawable/world4"
+        android:onClick="abrirMundoDivision"
+        android:layout_marginBottom="59dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/buttonRestas"
-        android:text="÷"
-        android:background="#69ffffff"
-        android:onClick="abrirMundoDivision"/>
+        android:layout_alignStart="@+id/buttonMultiplicacion" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="@string/SeleccionarMundo"
+        android:text="Selecciona un mundo"
         android:id="@+id/textViewSelectMundo"
         android:textSize="19dp"
-        android:layout_above="@+id/buttonSumas"
-        android:layout_alignParentStart="false"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="30dp"
-        android:textColor="#000000" />
+        android:textColor="#000000"
+        android:background="@drawable/fondo_titulo_cantjugadores"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>
