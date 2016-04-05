@@ -1,5 +1,6 @@
 package com.example.electiva.zimbabue;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +8,7 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -20,7 +22,9 @@ public class Pantalla_Tablero extends AppCompatActivity {
     public static ArrayList<Integer>  listaJugador3 ;
     public static ArrayList<Integer>  listaJugador4 ;
     public static int cantidadDeJugadores=0;
-     public static int jugadorEnTurno;
+    public static int jugadorEnTurno;
+    public Context context ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Intent intent = getIntent();
@@ -44,7 +48,9 @@ public class Pantalla_Tablero extends AppCompatActivity {
         return super.onKeyDown(keyCode, event);
     }
 
-    public static void colocarEnLista(View Boton){
+    public  void colocarEnLista(View Boton){
+
+        context = getApplicationContext();
         int etiquetaDelBoton = Integer.parseInt(Boton.getTag().toString());
         colocarBotonSegunJugador(Boton, jugadorEnTurno);
         if(!botonEstaEnAlgunaLista(Boton)){
@@ -80,7 +86,7 @@ public class Pantalla_Tablero extends AppCompatActivity {
 
         Collections.sort(getListaJugadorEnTurno());
         if(verificarSiHayGanador(getListaJugadorEnTurno())){
-
+            Toast.makeText(context,"El ganador es: Jugador "+jugadorEnTurno,Toast.LENGTH_LONG).show();
         }
         cambiarDeJugador();
 
@@ -108,7 +114,7 @@ public class Pantalla_Tablero extends AppCompatActivity {
             hayGanador=true;
             System.out.println("HAY GANADOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOR");
         }else if(hayCuatroEnLineaDiagonalBackSlash(listaJugadorEnTurno)){
-            hayGanador=true;
+           hayGanador=true;
             System.out.println("HAY GANADOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOR");
         }
 
@@ -147,6 +153,7 @@ public class Pantalla_Tablero extends AppCompatActivity {
                 }
                 if(listaDiagonalSlash.size()==4){
                     hayCuatroEnLineaSlash=true;
+
                     break;
                 }
                 i++;
