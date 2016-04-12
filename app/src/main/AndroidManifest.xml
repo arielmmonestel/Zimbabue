@@ -18,7 +18,11 @@
         </activity>
         <activity android:name=".Seleccionar_Mundo" />
         <activity android:name=".Cant_Jugadores" />
-        <activity android:name=".Pantalla_Tablero"></activity>
+        <activity android:name=".Pantalla_Tablero" />
+        <activity
+            android:name=".Pantalla_Preguntas"
+            android:label="@string/title_activity_pantalla__preguntas"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>
