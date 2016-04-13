@@ -1,34 +1,155 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    tools:context="com.example.electiva.zimbabue.Pantalla_Preguntas">
+    android:background="#d9b480">
 
-    <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+    <RelativeLayout
+        android:layout_width="200dp"
+        android:layout_height="280dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:background="@drawable/cielo"
+        android:id="@+id/relativeLayoutCielo">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+        <RelativeLayout
+            android:layout_width="100dp"
+            android:layout_height="140dp"
+            android:background="@drawable/fondo_carta"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="90dp"
+            android:id="@+id/relativeLayoutPregA">
 
-    </android.support.design.widget.AppBarLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="?"
+                android:id="@+id/textView2"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"
+                android:textSize="120dp"
+                android:layout_marginLeft="20dp"
+                android:typeface="sans"
+                android:textStyle="bold"
+                android:textColor="#e6b800" />
+        </RelativeLayout>
 
-    <include layout="@layout/content_pantalla__preguntas" />
+        <RelativeLayout
+            android:layout_width="100dp"
+            android:layout_height="140dp"
+            android:background="@drawable/fondo_carta"
+            android:layout_marginLeft="20dp"
+            android:layout_alignTop="@+id/relativeLayoutPregA"
+            android:layout_toEndOf="@+id/relativeLayoutPregA"
+            android:id="@+id/relativeLayoutPregB" >
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        android:src="@android:drawable/ic_dialog_email" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="?"
+                android:id="@+id/textView3"
+                android:textSize="120dp"
+                android:layout_marginLeft="20dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"
+                android:textStyle="bold"
+                android:textColor="#e6b800" />
+        </RelativeLayout>
 
-</android.support.design.widget.CoordinatorLayout>
+        <RelativeLayout
+            android:layout_width="100dp"
+            android:layout_height="140dp"
+            android:background="@drawable/fondo_carta"
+            android:layout_marginLeft="20dp"
+            android:id="@+id/relativeLayoutPregC"
+            android:layout_alignTop="@+id/relativeLayoutPregB"
+            android:layout_toEndOf="@+id/relativeLayoutPregB" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="?"
+                android:id="@+id/textView4"
+                android:textSize="120dp"
+                android:layout_marginLeft="20dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"
+                android:textStyle="bold"
+                android:textColor="#e6b800" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="400dp"
+            android:layout_height="60dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Escoge una pregunta"
+            android:id="@+id/textView5"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:background="#f99bd2"
+            android:textSize="33dp"
+            android:textColor="#e70064"
+            android:textStyle="bold"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="200dp"
+        android:layout_height="280dp"
+        android:background="#8fd168"
+        android:id="@+id/relativeLayout10"
+        android:layout_below="@+id/relativeLayoutCielo"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true">
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="320dp"
+            android:layout_height="70dp"
+            android:id="@+id/buttonOpcionA"
+            android:layout_below="@+id/relativeLayoutCielo"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/fondo_opcion"
+            android:textSize="40dp"
+            android:textStyle="bold" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="320dp"
+            android:layout_height="70dp"
+            android:id="@+id/buttonOpcionB"
+            android:layout_marginLeft="30dp"
+            android:layout_below="@+id/buttonOpcionA"
+            android:layout_alignParentStart="true"
+            android:background="@drawable/fondo_opcion"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"
+            android:textSize="40dp" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="320dp"
+            android:layout_height="70dp"
+            android:id="@+id/buttonOpcionC"
+            android:layout_marginLeft="30dp"
+            android:layout_below="@+id/buttonOpcionB"
+            android:layout_alignParentStart="true"
+            android:background="@drawable/fondo_opcion"
+            android:layout_marginTop="10dp"
+            android:textSize="40dp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

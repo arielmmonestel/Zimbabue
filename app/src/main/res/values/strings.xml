@@ -7,4 +7,5 @@
     <string name="tjugadores">3 JUGADORES</string>
     <string name="cjugadores">4 JUGADORES</string>
     <string name="SeleccionarCantJugadores">Selecciona la cantidad de jugadores</string>
+    <string name="title_activity_pantalla__preguntas">Pantalla_Preguntas</string>
 </resources>
