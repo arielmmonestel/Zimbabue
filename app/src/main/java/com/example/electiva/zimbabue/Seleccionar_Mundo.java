@@ -18,22 +18,23 @@ public class Seleccionar_Mundo extends Activity {
     }
 
     public void abrirMundoSuma(View v){
-        startActivity(new Intent(Seleccionar_Mundo.this, Cant_Jugadores.class));
+
+        startActivity(new Intent(Seleccionar_Mundo.this, Cant_Jugadores.class).putExtra("SimboloOperacion","+"));
         finish();
     }
 
     public void abrirMundoResta(View v){
-        startActivity(new Intent(Seleccionar_Mundo.this, Cant_Jugadores.class));
+        startActivity(new Intent(Seleccionar_Mundo.this, Cant_Jugadores.class).putExtra("SimboloOperacion","-"));
         finish();
     }
 
     public void abrirMundoMultiplicacion(View v){
-        startActivity(new Intent(Seleccionar_Mundo.this, Cant_Jugadores.class));
+        startActivity(new Intent(Seleccionar_Mundo.this, Cant_Jugadores.class).putExtra("SimboloOperacion","x"));
         finish();
     }
 
     public void abrirMundoDivision(View v){
-        startActivity(new Intent(Seleccionar_Mundo.this, Cant_Jugadores.class));
+        startActivity(new Intent(Seleccionar_Mundo.this, Cant_Jugadores.class).putExtra("SimboloOperacion","/"));
         finish();
     }
 

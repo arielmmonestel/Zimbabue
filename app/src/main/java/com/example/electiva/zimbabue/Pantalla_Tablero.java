@@ -3,11 +3,13 @@ package com.example.electiva.zimbabue;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -22,6 +24,7 @@ public class Pantalla_Tablero extends AppCompatActivity {
     public static ArrayList<Integer>  listaJugador3 ;
     public static ArrayList<Integer>  listaJugador4 ;
     public static int cantidadDeJugadores=0;
+    public static String simboloOperacion ;
     public static int jugadorEnTurno;
     public Context context ;
 
@@ -29,12 +32,20 @@ public class Pantalla_Tablero extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         Intent intent = getIntent();
         Bundle otrasVariables = intent.getExtras();
-        cantidadDeJugadores = otrasVariables.getInt("cantidadDeJugadores",0);
-        System.out.println("CANTIDA DE JUGADORES --------------------------------"+cantidadDeJugadores);
+        cantidadDeJugadores = otrasVariables.getInt("cantidadDeJugadores", 0);
+        simboloOperacion = otrasVariables.getString("SimboloOperacion", "-1");
+        System.out.println("CANTIDA DE JUGADORES --------------------------------" + cantidadDeJugadores);
+        System.out.println("Simbolo--------------------------------" + simboloOperacion);
         crearListasDeJugadores();
+        /*crearPreguntas();*/
         jugadorEnTurno = 1;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pantalla_tablero);
+        ImageView fondo  = (ImageView) findViewById(R.id.monoFondo);
+        if  (simboloOperacion.equals("+")){
+
+            fondo.setBackground(getDrawable(R.drawable.btn_circle_anaranjado));
+        }
     }
 
     @Override

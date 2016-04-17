@@ -12,8 +12,13 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 
 public class Cant_Jugadores extends Activity {
+    String simboloOperacion;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Intent intent = getIntent();
+        Bundle otrasVariables = intent.getExtras();
+        simboloOperacion = otrasVariables.getString("SimboloOperacion","-1");
+        System.out.println("SIMBOLO OPERACION EN VENTANA CANT JUGADOREs" + simboloOperacion);
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_cant_jugador);
@@ -36,6 +41,7 @@ public class Cant_Jugadores extends Activity {
                     public void onAnimationEnd(Animation animation) {
                         Intent intentDosJugadores = new Intent(Cant_Jugadores.this, Pantalla_Tablero.class);
                         intentDosJugadores.putExtra("cantidadDeJugadores",2);
+                        intentDosJugadores.putExtra("SimboloOperacion",simboloOperacion);
                         startActivity(intentDosJugadores);
                         Pantalla_Inicio.musicaFondo.stop();
                         finish();
@@ -64,6 +70,7 @@ public class Cant_Jugadores extends Activity {
                     public void onAnimationEnd(Animation animation) {
                         Intent intentTresJugadores = new Intent(Cant_Jugadores.this, Pantalla_Tablero.class);
                         intentTresJugadores.putExtra("cantidadDeJugadores",3);
+                        intentTresJugadores.putExtra("SimboloOperacion",simboloOperacion);
                         startActivity(intentTresJugadores);
                         Pantalla_Inicio.musicaFondo.stop();
                         finish();
@@ -92,6 +99,7 @@ public class Cant_Jugadores extends Activity {
                     public void onAnimationEnd(Animation animation) {
                         Intent intentCuatroJugadores = new Intent(Cant_Jugadores.this, Pantalla_Tablero.class);
                         intentCuatroJugadores.putExtra("cantidadDeJugadores",4);
+                        intentCuatroJugadores.putExtra("SimboloOperacion",simboloOperacion);
                         startActivity(intentCuatroJugadores);
                         Pantalla_Inicio.musicaFondo.pause();
                         finish();
