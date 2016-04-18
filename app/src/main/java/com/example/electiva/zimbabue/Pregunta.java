@@ -1,9 +1,10 @@
 package com.example.electiva.zimbabue;
+import java.io.Serializable;
 
 /**
  * Created by ariel on 17/4/2016.
  */
-public class Pregunta {
+public class Pregunta implements Serializable {
     private int operandoUno;
 
     public Pregunta(int operandoUno, int operandoDos, String operacion, int resultado) {
