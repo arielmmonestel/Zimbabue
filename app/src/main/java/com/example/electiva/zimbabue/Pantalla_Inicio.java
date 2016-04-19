@@ -23,6 +23,8 @@ public class Pantalla_Inicio extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_pantalla_inicio);
         musicaFondo = MediaPlayer.create(this, R.raw.fondo);
+        musicaFondo.setVolume(1,1);
+        final MediaPlayer opc = MediaPlayer.create(this, R.raw.elige);
         final Button botonJugar= (Button) findViewById(R.id.buttonJugar);
         final Button botonAyuda = (Button) findViewById(R.id.buttonAyuda);
         //if (!musicaEstaCorriendo) {
@@ -36,6 +38,7 @@ public class Pantalla_Inicio extends Activity {
             @Override
             public void onClick(View v) {
                 final Animation anrTl = AnimationUtils.loadAnimation(getBaseContext(), R.anim.rotate_from_right_to_left);
+                opc.start();
                 botonJugar.startAnimation(anrTl);
                 anrTl.setAnimationListener(new Animation.AnimationListener() {
                     @Override
@@ -60,6 +63,7 @@ public class Pantalla_Inicio extends Activity {
             @Override
             public void onClick(View v) {
                 final Animation anlTr = AnimationUtils.loadAnimation(getBaseContext(), R.anim.rotate_from_left_to_right);
+                opc.start();
                 botonAyuda.startAnimation(anlTr);
                 anlTr.setAnimationListener(new Animation.AnimationListener() {
                     @Override

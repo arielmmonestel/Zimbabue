@@ -2,6 +2,7 @@ package com.example.electiva.zimbabue;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -14,6 +15,7 @@ import android.widget.Button;
 public class Cant_Jugadores extends Activity {
     String simboloOperacion;
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         Intent intent = getIntent();
         Bundle otrasVariables = intent.getExtras();
@@ -22,6 +24,7 @@ public class Cant_Jugadores extends Activity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_cant_jugador);
+        final MediaPlayer sonad = MediaPlayer.create(this,R.raw.bongo);
         final Button Jugador2 = (Button) findViewById(R.id.Jugador2);
         final Button Jugador3 = (Button) findViewById(R.id.Jugador3);
         final Button Jugador4 = (Button) findViewById(R.id.Jugador4);
@@ -30,6 +33,7 @@ public class Cant_Jugadores extends Activity {
             @Override
             public void onClick(View v) {
                 final Animation anrTl = AnimationUtils.loadAnimation(getBaseContext(), R.anim.rotate_from_right_to_left);
+                sonad.start();
                 Jugador2.startAnimation(anrTl);
                 anrTl.setAnimationListener(new Animation.AnimationListener() {
                     @Override
@@ -59,6 +63,7 @@ public class Cant_Jugadores extends Activity {
             @Override
             public void onClick(View v) {
                 final Animation anlTr = AnimationUtils.loadAnimation(getBaseContext(), R.anim.rotate_from_left_to_right);
+                sonad.start();
                 Jugador3.startAnimation(anlTr);
                 anlTr.setAnimationListener(new Animation.AnimationListener() {
                     @Override
@@ -88,6 +93,7 @@ public class Cant_Jugadores extends Activity {
             @Override
             public void onClick(View v) {
                 final Animation anlTr = AnimationUtils.loadAnimation(getBaseContext(), R.anim.rotate_from_left_to_right);
+                sonad.start();
                 Jugador4.startAnimation(anlTr);
                 anlTr.setAnimationListener(new Animation.AnimationListener() {
                     @Override

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.media.Image;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -32,8 +33,10 @@ public class Pantalla_Tablero extends AppCompatActivity {
     public static int jugadorEnTurno;
     public Context context ;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        MediaPlayer cuadro = MediaPlayer.create(this,R.raw.pop);
         Intent intent = getIntent();
         Bundle otrasVariables = intent.getExtras();
         cantidadDeJugadores = otrasVariables.getInt("cantidadDeJugadores", 0);
@@ -115,8 +118,8 @@ public class Pantalla_Tablero extends AppCompatActivity {
     }
 
     public static void colocarBotonSegunJugador(View Boton,int jugadorEnTurno){
-        if(jugadorEnTurno==1){
 
+        if(jugadorEnTurno==1){
             Boton.setBackgroundResource(R.drawable.btn_jugador_uno);
         }else if(jugadorEnTurno==2){
             Boton.setBackgroundResource(R.drawable.btn_jugador_dos);

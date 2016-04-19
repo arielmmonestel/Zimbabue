@@ -1,6 +1,7 @@
 package com.example.electiva.zimbabue;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -56,6 +57,8 @@ public class Pantalla_Preguntas extends AppCompatActivity {
 
     public void seleccionarPreguntaA(View v){
         if(!yaEligioPregunta){
+            MediaPlayer seleccion = MediaPlayer.create(this,R.raw.select);
+            seleccion.start();
             textoPregunta1.setText(construirPregunta(preguntaRandom));
             textoPregunta1.setTextSize(30);
 
@@ -68,6 +71,8 @@ public class Pantalla_Preguntas extends AppCompatActivity {
 
     public void seleccionarPreguntaB(View v){
         if(!yaEligioPregunta){
+            MediaPlayer seleccion = MediaPlayer.create(this,R.raw.select);
+            seleccion.start();
             textoPregunta2.setText(construirPregunta(preguntaRandom));
             textoPregunta2.setTextSize(30);
 
@@ -80,6 +85,8 @@ public class Pantalla_Preguntas extends AppCompatActivity {
 
     public void seleccionarPreguntaC(View v){
         if(!yaEligioPregunta) {
+            MediaPlayer seleccion = MediaPlayer.create(this,R.raw.select);
+            seleccion.start();
             textoPregunta3.setText(construirPregunta(preguntaRandom));
             textoPregunta3.setTextSize(30);
 
