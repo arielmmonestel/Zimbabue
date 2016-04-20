@@ -2,6 +2,7 @@ package com.example.electiva.zimbabue;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class Cant_Jugadores extends Activity {
     String simboloOperacion;
@@ -24,6 +26,11 @@ public class Cant_Jugadores extends Activity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_cant_jugador);
+
+        Typeface texto = Typeface.createFromAsset(getAssets(),"zoo.otf");
+        TextView myTexto = (TextView) findViewById(R.id.textViewCantJugadores);
+        myTexto.setTypeface(texto);
+
         final MediaPlayer sonad = MediaPlayer.create(this,R.raw.bongo);
         final Button Jugador2 = (Button) findViewById(R.id.Jugador2);
         final Button Jugador3 = (Button) findViewById(R.id.Jugador3);
