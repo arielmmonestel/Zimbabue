@@ -84,7 +84,7 @@ public class Pantalla_Inicio extends Activity {
                     @Override
                     public void onAnimationEnd(Animation animation) {
                         finish();
-                        String url = "https://docs.google.com/document/d/1DPUn_RA08ynQx5lqpod7afcivpOAeBaWCNKg9Mpmqp0/edit?usp=sharing";
+                        String url = "https://drive.google.com/open?id=0B0Qhm-1UypPhR2RlWmRhRElfXzg";
                         Intent i = new Intent(Intent.ACTION_VIEW);
                         i.setData(Uri.parse(url));
                         startActivity(i);
