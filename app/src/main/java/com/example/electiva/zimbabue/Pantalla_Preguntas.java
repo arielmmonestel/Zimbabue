@@ -1,5 +1,6 @@
 package com.example.electiva.zimbabue;
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.content.Intent;
 import android.graphics.Color;
@@ -165,6 +166,11 @@ public class Pantalla_Preguntas extends AppCompatActivity {
             case R.id.buttonOpcionA:
                 if(preguntaRandom.getResultado() == listaRespuestas.get(0)) {
                     btnOpcionA.setBackground(getDrawable(R.drawable.fondo_opcion_correcta));
+                    Intent i = new Intent();
+                    i.putExtra("result", preguntaRandom.getResultado());
+                    setResult(Activity.RESULT_OK, i);
+                    finish();
+
                 }else{
                     btnOpcionA.setBackground(getDrawable(R.drawable.fondo_opcion_incorrecta));
                 }
@@ -172,6 +178,10 @@ public class Pantalla_Preguntas extends AppCompatActivity {
             case R.id.buttonOpcionB:
                 if(preguntaRandom.getResultado() == listaRespuestas.get(1)) {
                     btnOpcionB.setBackground(getDrawable(R.drawable.fondo_opcion_correcta));
+                    Intent i = new Intent();
+                    i.putExtra("result", preguntaRandom.getResultado());
+                    setResult(Activity.RESULT_OK, i);
+                    finish();
                 }else{
                     btnOpcionB.setBackground(getDrawable(R.drawable.fondo_opcion_incorrecta));
                 }
@@ -179,6 +189,10 @@ public class Pantalla_Preguntas extends AppCompatActivity {
             case R.id.buttonOpcionC:
                 if(preguntaRandom.getResultado() == listaRespuestas.get(2)) {
                     btnOpcionC.setBackground(getDrawable(R.drawable.fondo_opcion_correcta));
+                    Intent i = new Intent();
+                    i.putExtra("result", preguntaRandom.getResultado());
+                    setResult(Activity.RESULT_OK, i);
+                    finish();
                 }else{
                     btnOpcionC.setBackground(getDrawable(R.drawable.fondo_opcion_incorrecta));
                 }
