@@ -3,6 +3,7 @@ package com.example.electiva.zimbabue;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.media.Image;
 import android.media.MediaPlayer;
@@ -34,6 +35,11 @@ public class Pantalla_Tablero extends AppCompatActivity {
     public static String simboloOperacion ;
     public static int jugadorEnTurno;
     public Context context ;
+    Button botonJugador1;
+    Button botonJugador2;
+    Button botonJugador3;
+    Button botonJugador4;
+
 
 
     @Override
@@ -51,19 +57,19 @@ public class Pantalla_Tablero extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pantalla_tablero);
         cargarBotones();
-
-
+        hacerVisibleBotonesJugadorEnTurno(cantidadDeJugadores);
         Intent intentAPreguntas = new Intent(Pantalla_Tablero.this, Pantalla_Preguntas.class);
         intentAPreguntas.putExtra("preguntas", listaPreguntas);
         intentAPreguntas.putExtra("jugadorEnTurno", jugadorEnTurno);
         startActivityForResult(intentAPreguntas, 1);
 
-        habilitarAlgunosBotones(Integer.parseInt(listaBotones.get(2).getText().toString()));
+        //habilitarAlgunosBotones(Integer.parseInt(listaBotones.get(2).getText().toString()));
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
+        cambiarDeJugadorEnInterfaz();
         if (requestCode == 1) {
             if(resultCode == Activity.RESULT_OK){
                 int result=data.getIntExtra("result",-1);
@@ -106,7 +112,7 @@ public class Pantalla_Tablero extends AppCompatActivity {
                 boton.setAlpha(0.5f);
 
             }if(boton.getText().equals(String.valueOf(numeroBoton))){
-                boton.setTextSize(33);
+                boton.setTextSize(27);
 
             }
         }
@@ -161,8 +167,9 @@ public class Pantalla_Tablero extends AppCompatActivity {
         Collections.sort(getListaJugadorEnTurno());
         if(verificarSiHayGanador(getListaJugadorEnTurno())){
             Toast.makeText(context,"El ganador es: Jugador "+jugadorEnTurno,Toast.LENGTH_LONG).show();
+        }if(!verificarSiHayGanador(getListaJugadorEnTurno())){
+                cambiarDeJugador();
         }
-        cambiarDeJugador();
 
     }
 
@@ -342,14 +349,18 @@ public class Pantalla_Tablero extends AppCompatActivity {
         if(listaJugador4.contains(idDelBoton)){botonEstaEnLista=true;}
         return botonEstaEnLista;
     }
-    public static void cambiarDeJugador(){
+    public void cambiarDeJugador(){
         if(jugadorEnTurno ==cantidadDeJugadores){
             jugadorEnTurno=1;
         }else{
             jugadorEnTurno++;
         }
-        System.out.println("EL JUGADOR EN TURNO ES: "+jugadorEnTurno);
 
+        System.out.println("EL JUGADOR EN TURNO ES: " + jugadorEnTurno);
+        Intent intentAPreguntas = new Intent(Pantalla_Tablero.this, Pantalla_Preguntas.class);
+        intentAPreguntas.putExtra("preguntas", listaPreguntas);
+        intentAPreguntas.putExtra("jugadorEnTurno", jugadorEnTurno);
+        startActivityForResult(intentAPreguntas, 1);
     }
     public static ArrayList<Integer> getListaJugadorEnTurno(){
         ArrayList<Integer> listaJugadorEnTurno = new ArrayList<>();
@@ -629,5 +640,76 @@ public class Pantalla_Tablero extends AppCompatActivity {
         }
 
 
+    }
+    public void hacerVisibleBotonesJugadorEnTurno(int cantidadDeJugadores){
+        botonJugador1 = (Button) findViewById(R.id.button);
+        botonJugador2 = (Button) findViewById(R.id.button2);
+        botonJugador3 = (Button) findViewById(R.id.button3);
+        botonJugador4 = (Button) findViewById(R.id.button4);
+
+        if(cantidadDeJugadores ==2){
+            botonJugador3.setVisibility(View.INVISIBLE);
+            botonJugador4.setVisibility(View.INVISIBLE);
+        }
+        if(cantidadDeJugadores ==3){
+            botonJugador4.setVisibility(View.INVISIBLE);
+        }
+
+    }
+
+    public void cambiarDeJugadorEnInterfaz(){
+
+        if(jugadorEnTurno==1){
+            botonJugador1.setBackgroundColor(Color.argb(255,166,142,114));
+            botonJugador1.setTextColor(Color.argb(255, 216, 193, 148));
+
+            botonJugador2.setBackgroundColor(Color.argb(255, 216, 193, 148));
+            botonJugador2.setTextColor(Color.argb(255, 166, 142, 114));
+
+            botonJugador3.setBackgroundColor(Color.argb(255, 216, 193, 148));
+            botonJugador3.setTextColor(Color.argb(255, 166, 142, 114));
+
+            botonJugador4.setBackgroundColor(Color.argb(255, 216, 193, 148));
+            botonJugador4.setTextColor(Color.argb(255, 166, 142, 114));
+        }
+        if(jugadorEnTurno==2){
+            botonJugador1.setBackgroundColor(Color.argb(255,216,193,148));
+            botonJugador1.setTextColor(Color.argb(255, 166, 142, 114));
+
+            botonJugador2.setBackgroundColor(Color.argb(255, 166, 142, 114));
+            botonJugador2.setTextColor(Color.argb(255, 216, 193, 148));
+
+            botonJugador3.setBackgroundColor(Color.argb(255, 216, 193, 148));
+            botonJugador3.setTextColor(Color.argb(255, 166, 142, 114));
+
+            botonJugador4.setBackgroundColor(Color.argb(255, 216, 193, 148));
+            botonJugador4.setTextColor(Color.argb(255, 166, 142, 114));
+        }
+        if(jugadorEnTurno==3){
+            botonJugador1.setBackgroundColor(Color.argb(255,216,193,148));
+            botonJugador1.setTextColor(Color.argb(255, 166, 142, 114));
+
+            botonJugador2.setBackgroundColor(Color.argb(255, 216, 193, 148));
+            botonJugador2.setTextColor(Color.argb(255, 166, 142, 114));
+
+            botonJugador3.setBackgroundColor(Color.argb(255, 166, 142, 114));
+            botonJugador3.setTextColor(Color.argb(255, 216, 193, 148));
+
+            botonJugador4.setBackgroundColor(Color.argb(255, 216, 193, 148));
+            botonJugador4.setTextColor(Color.argb(255, 166, 142, 114));
+        }
+        if(jugadorEnTurno==4){
+            botonJugador1.setBackgroundColor(Color.argb(255, 216, 193, 148));
+            botonJugador3.setTextColor(Color.argb(255, 166, 142, 114));
+
+            botonJugador2.setBackgroundColor(Color.argb(255,216,193,148));
+            botonJugador3.setTextColor(Color.argb(255, 166, 142, 114));
+
+            botonJugador3.setBackgroundColor(Color.argb(255,216,193,148));
+            botonJugador3.setTextColor(Color.argb(255,166,142,114));
+
+            botonJugador4.setBackgroundColor(Color.argb(255,166,142,114));
+            botonJugador4.setTextColor(Color.argb(255, 216, 193, 148));
+        }
     }
 }

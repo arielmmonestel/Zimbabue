@@ -41,7 +41,7 @@ public class Pop extends Activity {
         int height = dm.heightPixels;
         getWindow().setLayout((int)(width*.8),(int)(height* 0.6));
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        final CounterClass timer = new CounterClass(4000,1000);
+        final CounterClass timer = new CounterClass(3000,1000);
         timer.start();
     }
 

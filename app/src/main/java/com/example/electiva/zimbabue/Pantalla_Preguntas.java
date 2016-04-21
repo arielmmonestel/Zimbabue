@@ -48,6 +48,13 @@ public class Pantalla_Preguntas extends AppCompatActivity {
         btnOpcionC = (Button) findViewById(R.id.buttonOpcionC);
 
         Intent intent = getIntent();
+        /**/
+        int jugadorEnTurno = intent.getIntExtra("jugadorEnTurno",-1);
+        Intent anuncioJugador = new Intent(Pantalla_Preguntas.this,Pop.class);
+        anuncioJugador.putExtra("jugadorEnTurno",jugadorEnTurno);
+        startActivity(anuncioJugador);
+        /**/
+
         listaPreguntas =(ArrayList<Pregunta>)intent.getSerializableExtra("preguntas");
         int j = 0;
         for(Pregunta pregunta:listaPreguntas){
