@@ -2,11 +2,14 @@ package com.example.electiva.zimbabue;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Typeface;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class Seleccionar_Mundo extends Activity {
 
@@ -15,25 +18,35 @@ public class Seleccionar_Mundo extends Activity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_seleccionar_mundo);
+        Typeface texto = Typeface.createFromAsset(getAssets(),"zoo.otf");
+        TextView myTexto = (TextView) findViewById(R.id.textViewSelectMundo);
+        myTexto.setTypeface(texto);
     }
 
     public void abrirMundoSuma(View v){
-
+        MediaPlayer sonad = MediaPlayer.create(this,R.raw.bongo);
+        sonad.start();
         startActivity(new Intent(Seleccionar_Mundo.this, Cant_Jugadores.class).putExtra("SimboloOperacion","+"));
         finish();
     }
 
     public void abrirMundoResta(View v){
+        MediaPlayer sonad = MediaPlayer.create(this,R.raw.bongo);
+        sonad.start();
         startActivity(new Intent(Seleccionar_Mundo.this, Cant_Jugadores.class).putExtra("SimboloOperacion","-"));
         finish();
     }
 
     public void abrirMundoMultiplicacion(View v){
+        MediaPlayer sonad = MediaPlayer.create(this,R.raw.bongo);
+        sonad.start();
         startActivity(new Intent(Seleccionar_Mundo.this, Cant_Jugadores.class).putExtra("SimboloOperacion","x"));
         finish();
     }
 
     public void abrirMundoDivision(View v){
+        MediaPlayer sonad = MediaPlayer.create(this,R.raw.bongo);
+        sonad.start();
         startActivity(new Intent(Seleccionar_Mundo.this, Cant_Jugadores.class).putExtra("SimboloOperacion","/"));
         finish();
     }

@@ -1,9 +1,11 @@
 package com.example.electiva.zimbabue;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.media.Image;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -27,13 +29,16 @@ public class Pantalla_Tablero extends AppCompatActivity {
     public static ArrayList<Integer>  listaJugador4 ;
     public static ArrayList<Pregunta> listaPreguntas  = new ArrayList<Pregunta>();
     public static ArrayList<Button> listaBotones = new ArrayList<Button>();
+    public static ArrayList<Button> listaBotonesAux = new ArrayList<Button>();
     public static int cantidadDeJugadores=0;
     public static String simboloOperacion ;
     public static int jugadorEnTurno;
     public Context context ;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        MediaPlayer cuadro = MediaPlayer.create(this,R.raw.pop);
         Intent intent = getIntent();
         Bundle otrasVariables = intent.getExtras();
         cantidadDeJugadores = otrasVariables.getInt("cantidadDeJugadores", 0);
@@ -42,23 +47,70 @@ public class Pantalla_Tablero extends AppCompatActivity {
         System.out.println("Simbolo--------------------------------" + simboloOperacion);
         crearListasDeJugadores();
         crearPreguntas();
-        int j=0;
-        for(Pregunta pregunta:listaPreguntas){
-            System.out.println(j+") "+"Pregunta: Cuanto es "+pregunta.getOperandoUno()+pregunta.getOperacion()+pregunta.getOperandoDos()+"? R/"+pregunta.getResultado());
-            j++;
-        }
         jugadorEnTurno = 1;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pantalla_tablero);
         cargarBotones();
 
+
         Intent intentAPreguntas = new Intent(Pantalla_Tablero.this, Pantalla_Preguntas.class);
-          intentAPreguntas.putExtra("preguntas", listaPreguntas);
-        startActivity(intentAPreguntas);
+        intentAPreguntas.putExtra("preguntas", listaPreguntas);
+        intentAPreguntas.putExtra("jugadorEnTurno", jugadorEnTurno);
+        startActivityForResult(intentAPreguntas, 1);
 
-
+        habilitarAlgunosBotones(Integer.parseInt(listaBotones.get(2).getText().toString()));
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if (requestCode == 1) {
+            if(resultCode == Activity.RESULT_OK){
+                int result=data.getIntExtra("result",-1);
+                if(result ==-1){
+                    //Codigo cambiarJugadorAqui
+                }else{
+                    habilitarAlgunosBotones(result);
+                }
+
+            }
+            if (resultCode == Activity.RESULT_CANCELED) {
+                //Write your code if there's no result
+            }
+        }
+    }
+    public  static  void habilitarTodosLosBotones(){
+        for (Button boton:listaBotones) {
+            if(boton.isEnabled()==true){
+                boton.setTextSize(23);
+
+
+
+            }
+            if(boton.isEnabled()==false) {
+                boton.setEnabled(true);
+                boton.setTextSize(23);
+                boton.setAlpha(1.0f);
+
+            }
+
+        }
+    }
+
+    public static void habilitarAlgunosBotones(int numeroBoton){
+         ;
+        for (Button boton:listaBotones) {
+            if(!boton.getText().equals(String.valueOf(numeroBoton))){
+                boton.setEnabled(false);
+                boton.setTextSize(18);
+                boton.setAlpha(0.5f);
+
+            }if(boton.getText().equals(String.valueOf(numeroBoton))){
+                boton.setTextSize(33);
+
+            }
+        }
+    }
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         // TODO Auto-generated method stub
@@ -71,7 +123,7 @@ public class Pantalla_Tablero extends AppCompatActivity {
     }
 
     public  void colocarEnLista(View Boton){
-
+        habilitarTodosLosBotones();
         context = getApplicationContext();
         int etiquetaDelBoton = Integer.parseInt(Boton.getTag().toString());
         colocarBotonSegunJugador(Boton, jugadorEnTurno);
@@ -115,8 +167,8 @@ public class Pantalla_Tablero extends AppCompatActivity {
     }
 
     public static void colocarBotonSegunJugador(View Boton,int jugadorEnTurno){
-        if(jugadorEnTurno==1){
 
+        if(jugadorEnTurno==1){
             Boton.setBackgroundResource(R.drawable.btn_jugador_uno);
         }else if(jugadorEnTurno==2){
             Boton.setBackgroundResource(R.drawable.btn_jugador_dos);
@@ -146,7 +198,8 @@ public class Pantalla_Tablero extends AppCompatActivity {
         }
 
         return hayGanador;
-    } public static boolean hayCuatroEnLineaDiagonalSlash(ArrayList<Integer> listaJugadorEnTurno){
+    }
+    public static boolean hayCuatroEnLineaDiagonalSlash(ArrayList<Integer> listaJugadorEnTurno){
         boolean hayCuatroEnLineaSlash = false;
         int i = 0;
         int cantEnLinea=1;
@@ -221,7 +274,6 @@ public class Pantalla_Tablero extends AppCompatActivity {
         }
         return hayCuatroEnLineaBackSlash;
     }
-
     public static boolean hayCuatroEnLineaVertical(ArrayList<Integer> listaJugadorEnTurno){
         boolean hayCuatroEnLineaVertical = false;
         int i = 0;
@@ -258,8 +310,6 @@ public class Pantalla_Tablero extends AppCompatActivity {
         }
         return hayCuatroEnLineaVertical;
     }
-
-
     public static boolean hayCuatroEnLineaHorizontal(ArrayList<Integer> listaJugadorEnTurno){
         boolean hayCuatroEnLineaHorizontal = false;
             int i = 0;
@@ -283,7 +333,6 @@ public class Pantalla_Tablero extends AppCompatActivity {
         }
         return hayCuatroEnLineaHorizontal;
     }
-
     public static Boolean botonEstaEnAlgunaLista(View boton){
         Boolean botonEstaEnLista = false;
         int idDelBoton = Integer.parseInt(boton.getTag().toString());
@@ -293,7 +342,6 @@ public class Pantalla_Tablero extends AppCompatActivity {
         if(listaJugador4.contains(idDelBoton)){botonEstaEnLista=true;}
         return botonEstaEnLista;
     }
-
     public static void cambiarDeJugador(){
         if(jugadorEnTurno ==cantidadDeJugadores){
             jugadorEnTurno=1;

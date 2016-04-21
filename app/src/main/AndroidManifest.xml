@@ -16,13 +16,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name= ".Pop" android:theme="@style/popTheme"></activity>
         <activity android:name=".Seleccionar_Mundo" />
         <activity android:name=".Cant_Jugadores" />
         <activity android:name=".Pantalla_Tablero" />
         <activity
             android:name=".Pantalla_Preguntas"
             android:label="@string/title_activity_pantalla__preguntas"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
     </application>
 
 </manifest>

@@ -80,24 +80,6 @@
             android:textStyle="bold" />
 
     </RelativeLayout>
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:text="11"
-        android:id="@+id/button1"
-        android:tag="1"
-        android:layout_marginLeft="12dp"
-
-        android:onClick="colocarEnLista"
-        android:textSize="23dp"
-        android:background="#96ffffff"
-        android:layout_alignTop="@+id/button6"
-        android:layout_alignParentStart="true"
-        android:textColor="#717171"
-        android:layout_marginTop="0dp" />
-
-
 
     <ImageView
         android:src="@drawable/mono"
@@ -112,16 +94,34 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="45dp"
         android:layout_height="45dp"
+        android:text="11"
+        android:id="@+id/button1"
+        android:tag="1"
+        android:layout_marginLeft="12dp"
+
+        android:onClick="colocarEnLista"
+        android:textSize="23dp"
+        android:background="#a2ffffff"
+        android:layout_alignTop="@+id/button6"
+        android:layout_alignParentStart="true"
+        android:textColor="#ea1f1919"
+        android:layout_marginTop="0dp" />
+
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
         android:text="40"
         android:id="@+id/button5"
         android:tag="2"
         android:layout_marginLeft="0dp"
-        android:background="#96ffffff"
+        android:background="#a2ffffff"
         android:onClick="colocarEnLista"
         android:textSize="23dp"
         android:layout_alignTop="@+id/button1"
         android:layout_toEndOf="@+id/button1"
-        android:textColor="#717171" />
+        android:textColor="#ea1f1919" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -131,10 +131,10 @@
         android:id="@+id/button6"
         android:tag="3"
         android:layout_marginLeft="0dp"
-        android:background="#96ffffff"
+        android:background="#a2ffffff"
         android:onClick="colocarEnLista"
         android:textSize="23dp"
-        android:textColor="#717171"
+        android:textColor="#ea1f1919"
         android:layout_below="@+id/relativeLayout3"
         android:layout_toEndOf="@+id/button5" />
 
@@ -146,12 +146,13 @@
         android:id="@+id/button7"
         android:tag="4"
         android:layout_marginLeft="0dp"
-        android:background="#96ffffff"
+        android:background="#a2ffffff"
         android:onClick="colocarEnLista"
         android:textSize="23dp"
         android:layout_below="@+id/relativeLayout3"
         android:layout_toEndOf="@+id/button6"
-        android:textColor="#717171" />
+        android:textColor="#ea1f1919"
+        android:elegantTextHeight="false" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -161,12 +162,12 @@
         android:id="@+id/button8"
         android:tag="5"
         android:layout_marginLeft="0dp"
-        android:background="#96ffffff"
+        android:background="#a2ffffff"
         android:onClick="colocarEnLista"
         android:textSize="23dp"
         android:layout_alignTop="@+id/monoFondo"
         android:layout_toEndOf="@+id/button7"
-        android:textColor="#717171" />
+        android:textColor="#ea1f1919" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -176,12 +177,12 @@
         android:id="@+id/button9"
         android:tag="6"
         android:layout_marginLeft="0dp"
-        android:background="#96ffffff"
+        android:background="#a2ffffff"
         android:onClick="colocarEnLista"
         android:textSize="23dp"
         android:layout_alignTop="@+id/monoFondo"
         android:layout_toEndOf="@+id/button8"
-        android:textColor="#717171" />
+        android:textColor="#ea1f1919" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -191,12 +192,12 @@
         android:id="@+id/button10"
         android:tag="6"
         android:layout_marginLeft="0dp"
-        android:background="#96ffffff"
+        android:background="#a2ffffff"
         android:onClick="colocarEnLista"
         android:textSize="23dp"
         android:layout_alignTop="@+id/monoFondo"
         android:layout_toEndOf="@+id/button9"
-        android:textColor="#717171" />
+        android:textColor="#ea1f1919" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -206,12 +207,12 @@
         android:id="@+id/button11"
         android:tag="8"
         android:layout_marginLeft="0dp"
-        android:background="#96ffffff"
+        android:background="#a2ffffff"
         android:onClick="colocarEnLista"
         android:textSize="23dp"
         android:layout_alignTop="@+id/monoFondo"
         android:layout_toEndOf="@+id/button10"
-        android:textColor="#717171" />
+        android:textColor="#ea1f1919" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -221,12 +222,12 @@
         android:id="@+id/button12"
         android:tag="9"
         android:layout_marginLeft="12dp"
-        android:background="#96ffffff"
+        android:background="#a2ffffff"
         android:onClick="colocarEnLista"
         android:textSize="23dp"
         android:layout_below="@+id/button1"
         android:layout_toStartOf="@+id/button5"
-        android:textColor="#717171" />
+        android:textColor="#ea1f1919" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -236,12 +237,12 @@
         android:id="@+id/button13"
         android:tag="10"
         android:layout_marginLeft="0dp"
-        android:background="#96ffffff"
+        android:background="#a2ffffff"
         android:onClick="colocarEnLista"
         android:textSize="23dp"
         android:layout_alignTop="@+id/button12"
         android:layout_toEndOf="@+id/button12"
-        android:textColor="#717171" />
+        android:textColor="#ea1f1919" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -251,12 +252,12 @@
         android:id="@+id/button14"
         android:tag="11"
         android:layout_marginLeft="0dp"
-        android:background="#96ffffff"
+        android:background="#a2ffffff"
         android:onClick="colocarEnLista"
         android:textSize="23dp"
         android:layout_alignTop="@+id/button13"
         android:layout_toEndOf="@+id/button13"
-        android:textColor="#717171" />
+        android:textColor="#ea1f1919" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -266,12 +267,12 @@
         android:id="@+id/button15"
         android:tag="12"
         android:layout_marginLeft="0dp"
-        android:background="#96ffffff"
+        android:background="#a2ffffff"
         android:onClick="colocarEnLista"
         android:textSize="23dp"
         android:layout_alignTop="@+id/button14"
         android:layout_toEndOf="@+id/button14"
-        android:textColor="#717171" />
+        android:textColor="#ea1f1919" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -281,12 +282,12 @@
         android:id="@+id/button16"
         android:tag="13"
         android:layout_marginLeft="0dp"
-        android:background="#96ffffff"
+        android:background="#a2ffffff"
         android:onClick="colocarEnLista"
         android:textSize="23dp"
         android:layout_alignTop="@+id/button15"
         android:layout_toEndOf="@+id/button15"
-        android:textColor="#717171" />
+        android:textColor="#ea1f1919" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -296,12 +297,12 @@
         android:id="@+id/button17"
         android:tag="14"
         android:layout_marginLeft="0dp"
-        android:background="#96ffffff"
+        android:background="#a2ffffff"
         android:onClick="colocarEnLista"
         android:textSize="23dp"
         android:layout_alignTop="@+id/button16"
         android:layout_toEndOf="@+id/button16"
-        android:textColor="#717171" />
+        android:textColor="#ea1f1919" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -311,12 +312,12 @@
         android:id="@+id/button18"
         android:tag="15"
         android:layout_marginLeft="0dp"
-        android:background="#96ffffff"
+        android:background="#a2ffffff"
         android:onClick="colocarEnLista"
         android:textSize="23dp"
         android:layout_alignTop="@+id/button17"
         android:layout_toEndOf="@+id/button17"
-        android:textColor="#717171" />
+        android:textColor="#ea1f1919" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -326,12 +327,12 @@
         android:id="@+id/button19"
         android:tag="16"
         android:layout_marginLeft="0dp"
-        android:background="#96ffffff"
+        android:background="#a2ffffff"
         android:onClick="colocarEnLista"
         android:textSize="23dp"
         android:layout_alignTop="@+id/button18"
         android:layout_toEndOf="@+id/button18"
-        android:textColor="#717171" />
+        android:textColor="#ea1f1919" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -341,12 +342,12 @@
         android:id="@+id/button20"
         android:tag="17"
         android:layout_marginLeft="0dp"
-        android:background="#96ffffff"
+        android:background="#a2ffffff"
         android:onClick="colocarEnLista"
         android:textSize="23dp"
         android:layout_below="@+id/button12"
         android:layout_alignStart="@+id/button12"
-        android:textColor="#717171" />
+        android:textColor="#ea1f1919" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -356,12 +357,12 @@
         android:id="@+id/button21"
         android:tag="18"
         android:layout_marginLeft="0dp"
-        android:background="#96ffffff"
+        android:background="#a2ffffff"
         android:onClick="colocarEnLista"
         android:textSize="23dp"
         android:layout_below="@+id/button12"
         android:layout_toEndOf="@+id/button12"
-        android:textColor="#717171" />
+        android:textColor="#ea1f1919" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -371,12 +372,12 @@
         android:id="@+id/button22"
         android:tag="19"
         android:layout_marginLeft="0dp"
-        android:background="#96ffffff"
+        android:background="#a2ffffff"
         android:onClick="colocarEnLista"
         android:textSize="23dp"
         android:layout_below="@+id/button13"
         android:layout_toEndOf="@+id/button13"
-        android:textColor="#717171" />
+        android:textColor="#ea1f1919" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -386,12 +387,12 @@
         android:id="@+id/button23"
         android:tag="20"
         android:layout_marginLeft="0dp"
-        android:background="#96ffffff"
+        android:background="#a2ffffff"
         android:onClick="colocarEnLista"
         android:textSize="23dp"
         android:layout_alignTop="@+id/button22"
         android:layout_alignStart="@+id/button15"
-        android:textColor="#717171" />
+        android:textColor="#ea1f1919" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -401,12 +402,12 @@
         android:id="@+id/button24"
         android:tag="21"
         android:layout_marginLeft="0dp"
-        android:background="#96ffffff"
+        android:background="#a2ffffff"
         android:onClick="colocarEnLista"
         android:textSize="23dp"
         android:layout_alignTop="@+id/button23"
         android:layout_alignStart="@+id/button16"
-        android:textColor="#717171" />
+        android:textColor="#ea1f1919" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -416,12 +417,12 @@
         android:id="@+id/button25"
         android:tag="22"
         android:layout_marginLeft="0dp"
-        android:background="#96ffffff"
+        android:background="#a2ffffff"
         android:onClick="colocarEnLista"
         android:textSize="23dp"
         android:layout_alignTop="@+id/button24"
         android:layout_toEndOf="@+id/button24"
-        android:textColor="#717171" />
+        android:textColor="#ea1f1919" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -431,12 +432,12 @@
         android:id="@+id/button26"
         android:tag="23"
         android:layout_marginLeft="0dp"
-        android:background="#96ffffff"
+        android:background="#a2ffffff"
         android:onClick="colocarEnLista"
         android:textSize="23dp"
         android:layout_alignTop="@+id/button25"
         android:layout_alignStart="@+id/button18"
-        android:textColor="#717171" />
+        android:textColor="#ea1f1919" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -446,12 +447,12 @@
         android:id="@+id/button27"
         android:tag="24"
         android:layout_marginLeft="0dp"
-        android:background="#96ffffff"
+        android:background="#a2ffffff"
         android:onClick="colocarEnLista"
         android:textSize="23dp"
         android:layout_alignTop="@+id/button26"
         android:layout_toEndOf="@+id/button26"
-        android:textColor="#717171" />
+        android:textColor="#ea1f1919" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -461,12 +462,12 @@
         android:id="@+id/button28"
         android:tag="25"
         android:layout_marginLeft="12dp"
-        android:background="#96ffffff"
+        android:background="#a2ffffff"
         android:onClick="colocarEnLista"
         android:textSize="23dp"
         android:layout_below="@+id/button20"
         android:layout_alignParentStart="true"
-        android:textColor="#717171" />
+        android:textColor="#ea1f1919" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -476,12 +477,12 @@
         android:id="@+id/button29"
         android:tag="26"
         android:layout_marginLeft="0dp"
-        android:background="#96ffffff"
+        android:background="#a2ffffff"
         android:onClick="colocarEnLista"
         android:textSize="23dp"
         android:layout_below="@+id/button20"
         android:layout_toEndOf="@+id/button28"
-        android:textColor="#717171" />
+        android:textColor="#ea1f1919" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -491,12 +492,12 @@
         android:id="@+id/button30"
         android:tag="27"
         android:layout_marginLeft="0dp"
-        android:background="#96ffffff"
+        android:background="#a2ffffff"
         android:onClick="colocarEnLista"
         android:textSize="23dp"
         android:layout_below="@+id/button21"
         android:layout_toEndOf="@+id/button21"
-        android:textColor="#717171" />
+        android:textColor="#ea1f1919" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -506,12 +507,12 @@
         android:id="@+id/button31"
         android:tag="28"
         android:layout_marginLeft="0dp"
-        android:background="#96ffffff"
+        android:background="#a2ffffff"
         android:onClick="colocarEnLista"
         android:textSize="23dp"
         android:layout_below="@+id/button23"
         android:layout_alignStart="@+id/button23"
-        android:textColor="#717171" />
+        android:textColor="#ea1f1919" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -521,12 +522,12 @@
         android:id="@+id/button32"
         android:tag="29"
         android:layout_marginLeft="0dp"
-        android:background="#96ffffff"
+        android:background="#a2ffffff"
         android:onClick="colocarEnLista"
         android:textSize="23dp"
         android:layout_below="@+id/button23"
         android:layout_toEndOf="@+id/button31"
-        android:textColor="#717171" />
+        android:textColor="#ea1f1919" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -536,12 +537,12 @@
         android:id="@+id/button33"
         android:tag="30"
         android:layout_marginLeft="0dp"
-        android:background="#96ffffff"
+        android:background="#a2ffffff"
         android:onClick="colocarEnLista"
         android:textSize="23dp"
         android:layout_below="@+id/button24"
         android:layout_toEndOf="@+id/button32"
-        android:textColor="#717171" />
+        android:textColor="#ea1f1919" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -551,12 +552,12 @@
         android:id="@+id/button34"
         android:tag="31"
         android:layout_marginLeft="0dp"
-        android:background="#96ffffff"
+        android:background="#a2ffffff"
         android:onClick="colocarEnLista"
         android:textSize="23dp"
         android:layout_below="@+id/button26"
         android:layout_alignStart="@+id/button26"
-        android:textColor="#717171" />
+        android:textColor="#ea1f1919" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -566,12 +567,12 @@
         android:id="@+id/button35"
         android:tag="32"
         android:layout_marginLeft="0dp"
-        android:background="#96ffffff"
+        android:background="#a2ffffff"
         android:onClick="colocarEnLista"
         android:textSize="23dp"
         android:layout_below="@+id/button27"
         android:layout_toEndOf="@+id/button34"
-        android:textColor="#717171" />
+        android:textColor="#ea1f1919" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -581,12 +582,12 @@
         android:id="@+id/button36"
         android:tag="33"
         android:layout_marginLeft="12dp"
-        android:background="#96ffffff"
+        android:background="#a2ffffff"
         android:onClick="colocarEnLista"
         android:textSize="23dp"
         android:layout_below="@+id/button28"
         android:layout_alignParentStart="true"
-        android:textColor="#717171" />
+        android:textColor="#ea1f1919" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -596,12 +597,12 @@
         android:id="@+id/button37"
         android:tag="34"
         android:layout_marginLeft="0dp"
-        android:background="#96ffffff"
+        android:background="#a2ffffff"
         android:onClick="colocarEnLista"
         android:textSize="23dp"
         android:layout_alignTop="@+id/button36"
         android:layout_toEndOf="@+id/button36"
-        android:textColor="#717171" />
+        android:textColor="#ea1f1919" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -611,12 +612,12 @@
         android:id="@+id/button38"
         android:tag="35"
         android:layout_marginLeft="0dp"
-        android:background="#96ffffff"
+        android:background="#a2ffffff"
         android:onClick="colocarEnLista"
         android:textSize="23dp"
         android:layout_alignTop="@+id/button37"
         android:layout_toEndOf="@+id/button37"
-        android:textColor="#717171" />
+        android:textColor="#ea1f1919" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -626,12 +627,12 @@
         android:id="@+id/button39"
         android:tag="36"
         android:layout_marginLeft="0dp"
-        android:background="#96ffffff"
+        android:background="#a2ffffff"
         android:onClick="colocarEnLista"
         android:textSize="23dp"
         android:layout_alignTop="@+id/button38"
         android:layout_toEndOf="@+id/button38"
-        android:textColor="#717171" />
+        android:textColor="#ea1f1919" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -641,12 +642,12 @@
         android:id="@+id/button40"
         android:tag="37"
         android:layout_marginLeft="0dp"
-        android:background="#96ffffff"
+        android:background="#a2ffffff"
         android:onClick="colocarEnLista"
         android:textSize="23dp"
         android:layout_alignTop="@+id/button39"
         android:layout_toEndOf="@+id/button39"
-        android:textColor="#717171" />
+        android:textColor="#ea1f1919" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -656,12 +657,12 @@
         android:id="@+id/button41"
         android:tag="38"
         android:layout_marginLeft="0dp"
-        android:background="#96ffffff"
+        android:background="#a2ffffff"
         android:onClick="colocarEnLista"
         android:textSize="23dp"
         android:layout_alignTop="@+id/button40"
         android:layout_toEndOf="@+id/button40"
-        android:textColor="#717171" />
+        android:textColor="#ea1f1919" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -671,12 +672,12 @@
         android:id="@+id/button42"
         android:tag="39"
         android:layout_marginLeft="0dp"
-        android:background="#96ffffff"
+        android:background="#a2ffffff"
         android:onClick="colocarEnLista"
         android:textSize="23dp"
         android:layout_alignTop="@+id/button41"
         android:layout_alignStart="@+id/button34"
-        android:textColor="#717171" />
+        android:textColor="#ea1f1919" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -686,12 +687,12 @@
         android:id="@+id/button43"
         android:tag="40"
         android:layout_marginLeft="0dp"
-        android:background="#96ffffff"
+        android:background="#a2ffffff"
         android:onClick="colocarEnLista"
         android:textSize="23dp"
         android:layout_below="@+id/button34"
         android:layout_toEndOf="@+id/button34"
-        android:textColor="#717171" />
+        android:textColor="#ea1f1919" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -701,12 +702,12 @@
         android:id="@+id/button44"
         android:tag="41"
         android:layout_marginLeft="12dp"
-        android:background="#96ffffff"
+        android:background="#a2ffffff"
         android:onClick="colocarEnLista"
         android:textSize="23dp"
         android:layout_below="@+id/button36"
         android:layout_alignParentStart="true"
-        android:textColor="#717171" />
+        android:textColor="#ea1f1919" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -716,12 +717,12 @@
         android:id="@+id/button45"
         android:tag="42"
         android:layout_marginLeft="0dp"
-        android:background="#96ffffff"
+        android:background="#a2ffffff"
         android:onClick="colocarEnLista"
         android:textSize="23dp"
         android:layout_below="@+id/button37"
         android:layout_toEndOf="@+id/button36"
-        android:textColor="#717171" />
+        android:textColor="#ea1f1919" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -731,12 +732,12 @@
         android:id="@+id/button46"
         android:tag="43"
         android:layout_marginLeft="0dp"
-        android:background="#96ffffff"
+        android:background="#a2ffffff"
         android:onClick="colocarEnLista"
         android:textSize="23dp"
         android:layout_alignTop="@+id/button45"
         android:layout_toEndOf="@+id/button45"
-        android:textColor="#717171" />
+        android:textColor="#ea1f1919" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -746,12 +747,12 @@
         android:id="@+id/button47"
         android:tag="44"
         android:layout_marginLeft="0dp"
-        android:background="#96ffffff"
+        android:background="#a2ffffff"
         android:onClick="colocarEnLista"
         android:textSize="23dp"
         android:layout_alignTop="@+id/button46"
         android:layout_alignStart="@+id/button39"
-        android:textColor="#717171" />
+        android:textColor="#ea1f1919" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -761,12 +762,12 @@
         android:id="@+id/button48"
         android:tag="45"
         android:layout_marginLeft="0dp"
-        android:background="#96ffffff"
+        android:background="#a2ffffff"
         android:onClick="colocarEnLista"
         android:textSize="23dp"
         android:layout_alignTop="@+id/button47"
         android:layout_toEndOf="@+id/button47"
-        android:textColor="#717171" />
+        android:textColor="#ea1f1919" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -776,12 +777,12 @@
         android:id="@+id/button49"
         android:tag="46"
         android:layout_marginLeft="0dp"
-        android:background="#96ffffff"
+        android:background="#a2ffffff"
         android:onClick="colocarEnLista"
         android:textSize="23dp"
         android:layout_alignTop="@+id/button48"
         android:layout_toEndOf="@+id/button48"
-        android:textColor="#717171" />
+        android:textColor="#ea1f1919" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -791,12 +792,12 @@
         android:id="@+id/button50"
         android:tag="47"
         android:layout_marginLeft="0dp"
-        android:background="#96ffffff"
+        android:background="#a2ffffff"
         android:onClick="colocarEnLista"
         android:textSize="23dp"
         android:layout_alignTop="@+id/button49"
         android:layout_alignStart="@+id/button42"
-        android:textColor="#717171" />
+        android:textColor="#ea1f1919" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -806,12 +807,12 @@
         android:id="@+id/button51"
         android:tag="48"
         android:layout_marginLeft="0dp"
-        android:background="#96ffffff"
+        android:background="#a2ffffff"
         android:onClick="colocarEnLista"
         android:textSize="23dp"
         android:layout_alignTop="@+id/button50"
         android:layout_toEndOf="@+id/button50"
-        android:textColor="#717171" />
+        android:textColor="#ea1f1919" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -821,12 +822,12 @@
         android:id="@+id/button52"
         android:tag="49"
         android:layout_marginLeft="12dp"
-        android:background="#96ffffff"
+        android:background="#a2ffffff"
         android:onClick="colocarEnLista"
         android:textSize="23dp"
         android:layout_below="@+id/button44"
         android:layout_alignParentStart="true"
-        android:textColor="#717171" />
+        android:textColor="#ea1f1919" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -836,12 +837,12 @@
         android:id="@+id/button53"
         android:tag="50"
         android:layout_marginLeft="0dp"
-        android:background="#96ffffff"
+        android:background="#a2ffffff"
         android:onClick="colocarEnLista"
         android:textSize="23dp"
         android:layout_below="@+id/button45"
         android:layout_toEndOf="@+id/button52"
-        android:textColor="#717171" />
+        android:textColor="#ea1f1919" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -851,12 +852,12 @@
         android:id="@+id/button54"
         android:tag="51"
         android:layout_marginLeft="0dp"
-        android:background="#96ffffff"
+        android:background="#a2ffffff"
         android:onClick="colocarEnLista"
         android:textSize="23dp"
         android:layout_below="@+id/button46"
         android:layout_alignStart="@+id/button46"
-        android:textColor="#717171" />
+        android:textColor="#ea1f1919" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -866,12 +867,12 @@
         android:id="@+id/button55"
         android:tag="52"
         android:layout_marginLeft="0dp"
-        android:background="#96ffffff"
+        android:background="#a2ffffff"
         android:onClick="colocarEnLista"
         android:textSize="23dp"
         android:layout_below="@+id/button47"
         android:layout_alignStart="@+id/button47"
-        android:textColor="#717171" />
+        android:textColor="#ea1f1919" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -881,12 +882,12 @@
         android:id="@+id/button56"
         android:tag="53"
         android:layout_marginLeft="0dp"
-        android:background="#96ffffff"
+        android:background="#a2ffffff"
         android:onClick="colocarEnLista"
         android:textSize="23dp"
         android:layout_below="@+id/button48"
         android:layout_toEndOf="@+id/button55"
-        android:textColor="#717171" />
+        android:textColor="#ea1f1919" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -896,12 +897,12 @@
         android:id="@+id/button57"
         android:tag="54"
         android:layout_marginLeft="0dp"
-        android:background="#96ffffff"
+        android:background="#a2ffffff"
         android:onClick="colocarEnLista"
         android:textSize="23dp"
         android:layout_below="@+id/button49"
         android:layout_alignStart="@+id/button49"
-        android:textColor="#717171" />
+        android:textColor="#ea1f1919" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -911,12 +912,12 @@
         android:id="@+id/button58"
         android:tag="55"
         android:layout_marginLeft="0dp"
-        android:background="#96ffffff"
+        android:background="#a2ffffff"
         android:onClick="colocarEnLista"
         android:textSize="23dp"
         android:layout_below="@+id/button50"
         android:layout_alignStart="@+id/button50"
-        android:textColor="#717171" />
+        android:textColor="#ea1f1919" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -926,12 +927,12 @@
         android:id="@+id/button59"
         android:tag="56"
         android:layout_marginLeft="0dp"
-        android:background="#96ffffff"
+        android:background="#a2ffffff"
         android:onClick="colocarEnLista"
         android:textSize="23dp"
         android:layout_below="@+id/button51"
         android:layout_toEndOf="@+id/button50"
-        android:textColor="#717171" />
+        android:textColor="#ea1f1919" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -941,12 +942,12 @@
         android:id="@+id/button60"
         android:tag="57"
         android:layout_marginLeft="12dp"
-        android:background="#96ffffff"
+        android:background="#a2ffffff"
         android:onClick="colocarEnLista"
         android:textSize="23dp"
         android:layout_below="@+id/button52"
         android:layout_alignParentStart="true"
-        android:textColor="#717171" />
+        android:textColor="#ea1f1919" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -956,12 +957,12 @@
         android:id="@+id/button61"
         android:tag="58"
         android:layout_marginLeft="0dp"
-        android:background="#96ffffff"
+        android:background="#a2ffffff"
         android:onClick="colocarEnLista"
         android:textSize="23dp"
         android:layout_below="@+id/button53"
         android:layout_toEndOf="@+id/button52"
-        android:textColor="#717171" />
+        android:textColor="#ea1f1919" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -971,12 +972,12 @@
         android:id="@+id/button62"
         android:tag="59"
         android:layout_marginLeft="0dp"
-        android:background="#96ffffff"
+        android:background="#a2ffffff"
         android:onClick="colocarEnLista"
         android:textSize="23dp"
         android:layout_below="@+id/button53"
         android:layout_toEndOf="@+id/button53"
-        android:textColor="#717171" />
+        android:textColor="#ea1f1919" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -986,12 +987,12 @@
         android:id="@+id/button63"
         android:tag="60"
         android:layout_marginLeft="0dp"
-        android:background="#96ffffff"
+        android:background="#a2ffffff"
         android:onClick="colocarEnLista"
         android:textSize="23dp"
         android:layout_below="@+id/button55"
         android:layout_alignStart="@+id/button55"
-        android:textColor="#717171" />
+        android:textColor="#ea1f1919" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -1001,12 +1002,12 @@
         android:id="@+id/button64"
         android:tag="61"
         android:layout_marginLeft="0dp"
-        android:background="#96ffffff"
+        android:background="#a2ffffff"
         android:onClick="colocarEnLista"
         android:textSize="23dp"
         android:layout_below="@+id/button56"
         android:layout_toEndOf="@+id/button55"
-        android:textColor="#717171" />
+        android:textColor="#ea1f1919" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -1016,12 +1017,12 @@
         android:id="@+id/button65"
         android:tag="62"
         android:layout_marginLeft="0dp"
-        android:background="#96ffffff"
+        android:background="#a2ffffff"
         android:onClick="colocarEnLista"
         android:textSize="23dp"
         android:layout_below="@+id/button56"
         android:layout_toEndOf="@+id/button56"
-        android:textColor="#717171" />
+        android:textColor="#ea1f1919" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -1031,12 +1032,12 @@
         android:id="@+id/button66"
         android:tag="63"
         android:layout_marginLeft="0dp"
-        android:background="#96ffffff"
+        android:background="#a2ffffff"
         android:onClick="colocarEnLista"
         android:textSize="23dp"
         android:layout_below="@+id/button58"
         android:layout_alignStart="@+id/button58"
-        android:textColor="#717171" />
+        android:textColor="#ea1f1919" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -1046,11 +1047,11 @@
         android:id="@+id/button67"
         android:tag="64"
         android:layout_marginLeft="0dp"
-        android:background="#96ffffff"
+        android:background="#a2ffffff"
         android:onClick="colocarEnLista"
         android:textSize="23dp"
         android:layout_below="@+id/button59"
         android:layout_toEndOf="@+id/button58"
-        android:textColor="#717171" />
+        android:textColor="#ea1f1919" />
 
 </RelativeLayout>
