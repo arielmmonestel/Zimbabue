@@ -14,7 +14,7 @@
         android:background="@drawable/cielo"
         android:id="@+id/relativeLayoutCielo">
 
-        <!--
+
         <RelativeLayout
             android:layout_width="100dp"
             android:layout_height="140dp"
@@ -29,30 +29,23 @@
                 android:layout_height="wrap_content"
                 android:text="\?"
                 android:id="@+id/txtViewPregunta1"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentStart="true"
                 android:textSize="120dp"
                 android:layout_marginLeft="20dp"
                 android:typeface="sans"
                 android:textStyle="bold"
-                android:textColor="#e6b800" />
-        </RelativeLayout> -->
+                android:textColor="#e6b800"
+                android:layout_alignParentTop="true" />
 
-        <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/relativeLayoutPregA"
-            android:layout_width="100dp"
-            android:layout_height="140dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="90dp"/>
+        </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="100dp"
             android:layout_height="140dp"
             android:background="@drawable/fondo_carta"
             android:layout_marginLeft="20dp"
+            android:id="@+id/relativeLayoutPregB"
             android:layout_alignTop="@+id/relativeLayoutPregA"
             android:layout_toEndOf="@+id/relativeLayoutPregA"
-            android:id="@+id/relativeLayoutPregB"
             android:onClick="seleccionarPreguntaB">
 
             <TextView
@@ -60,12 +53,14 @@
                 android:layout_height="wrap_content"
                 android:text="\?"
                 android:id="@+id/txtViewPregunta2"
-                android:textSize="120dp"
-                android:layout_marginLeft="20dp"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentStart="true"
+                android:textSize="120dp"
+                android:layout_marginLeft="20dp"
+                android:typeface="sans"
                 android:textStyle="bold"
                 android:textColor="#e6b800" />
+
         </RelativeLayout>
 
         <RelativeLayout
@@ -83,12 +78,14 @@
                 android:layout_height="wrap_content"
                 android:text="\?"
                 android:id="@+id/txtViewPregunta3"
-                android:textSize="120dp"
-                android:layout_marginLeft="20dp"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentStart="true"
+                android:textSize="120dp"
+                android:layout_marginLeft="20dp"
+                android:typeface="sans"
                 android:textStyle="bold"
                 android:textColor="#e6b800" />
+
         </RelativeLayout>
 
         <TextView

@@ -4,25 +4,19 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
-import android.media.Image;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.Toast;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
-import java.util.Random;
 
 public class Pantalla_Tablero extends AppCompatActivity {
-
 
     public static ArrayList<Integer> listaJugador1 ;
     public static ArrayList<Integer>  listaJugador2 ;
@@ -40,9 +34,6 @@ public class Pantalla_Tablero extends AppCompatActivity {
     Button botonJugador3;
     Button botonJugador4;
 
-
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         MediaPlayer cuadro = MediaPlayer.create(this,R.raw.pop);
         Intent intent = getIntent();
@@ -55,7 +46,9 @@ public class Pantalla_Tablero extends AppCompatActivity {
         crearPreguntas();
         jugadorEnTurno = 1;
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pantalla_tablero);
+
+        //setContentView(R.layout.activity_pantalla_tablero_mono);
+        ponerTema();
         cargarBotones();
         hacerVisibleBotonesJugadorEnTurno(cantidadDeJugadores);
         Intent intentAPreguntas = new Intent(Pantalla_Tablero.this, Pantalla_Preguntas.class);
@@ -85,6 +78,22 @@ public class Pantalla_Tablero extends AppCompatActivity {
             }
         }
     }
+
+    public void ponerTema(){
+        if(simboloOperacion.equals("+")){
+            setContentView(R.layout.activity_pantalla_tablero_mono);
+        }else if(simboloOperacion.equals("-")){
+            setContentView(R.layout.activity_pantalla_tablero_hipo);
+        }else if(simboloOperacion.equals("x")){
+            setContentView(R.layout.activity_pantalla_tablero_cocodrilo);
+        }else if(simboloOperacion.equals("/")){
+            setContentView(R.layout.activity_pantalla_tablero_elefante);
+        }else{
+            Log.e("ERROR()", "NO HAY TEMA");
+        }
+
+    }
+
     public  static  void habilitarTodosLosBotones(){
         for (Button boton:listaBotones) {
             if(boton.isEnabled()==true){
@@ -659,57 +668,52 @@ public class Pantalla_Tablero extends AppCompatActivity {
 
     public void cambiarDeJugadorEnInterfaz(){
 
+        String colorOscuro = "#000000";
+        String colorClaro = "#000000";
+
+        if(simboloOperacion.equals("+")){
+            colorOscuro = "#A68E72";
+            colorClaro = "#D8C194";
+        }else if(simboloOperacion.equals("-")){
+            colorOscuro = "#F49ECC";
+            colorClaro = "#FFFFFF";
+        }else if(simboloOperacion.equals("x")){
+            colorOscuro = "#79BB61";
+            colorClaro = "#C8E39D";
+        }else if(simboloOperacion.equals("/")){
+            colorOscuro = "#6BC066";
+            colorClaro = "#D0F3EF";
+        }else{
+            Log.e("ERROR()", "NO HAY OPERACION");
+        }
+
+        botonJugador1.setBackgroundColor(Color.parseColor(colorClaro));
+        botonJugador1.setTextColor(Color.parseColor(colorOscuro));
+
+        botonJugador2.setBackgroundColor(Color.parseColor(colorClaro));
+        botonJugador2.setTextColor(Color.parseColor(colorOscuro));
+
+        botonJugador3.setBackgroundColor(Color.parseColor(colorClaro));
+        botonJugador3.setTextColor(Color.parseColor(colorOscuro));
+
+        botonJugador4.setBackgroundColor(Color.parseColor(colorClaro));
+        botonJugador4.setTextColor(Color.parseColor(colorOscuro));
+
         if(jugadorEnTurno==1){
-            botonJugador1.setBackgroundColor(Color.argb(255,166,142,114));
-            botonJugador1.setTextColor(Color.argb(255, 216, 193, 148));
-
-            botonJugador2.setBackgroundColor(Color.argb(255, 216, 193, 148));
-            botonJugador2.setTextColor(Color.argb(255, 166, 142, 114));
-
-            botonJugador3.setBackgroundColor(Color.argb(255, 216, 193, 148));
-            botonJugador3.setTextColor(Color.argb(255, 166, 142, 114));
-
-            botonJugador4.setBackgroundColor(Color.argb(255, 216, 193, 148));
-            botonJugador4.setTextColor(Color.argb(255, 166, 142, 114));
+            botonJugador1.setBackgroundColor(Color.parseColor(colorOscuro));
+            botonJugador1.setTextColor(Color.parseColor(colorClaro));
         }
         if(jugadorEnTurno==2){
-            botonJugador1.setBackgroundColor(Color.argb(255,216,193,148));
-            botonJugador1.setTextColor(Color.argb(255, 166, 142, 114));
-
-            botonJugador2.setBackgroundColor(Color.argb(255, 166, 142, 114));
-            botonJugador2.setTextColor(Color.argb(255, 216, 193, 148));
-
-            botonJugador3.setBackgroundColor(Color.argb(255, 216, 193, 148));
-            botonJugador3.setTextColor(Color.argb(255, 166, 142, 114));
-
-            botonJugador4.setBackgroundColor(Color.argb(255, 216, 193, 148));
-            botonJugador4.setTextColor(Color.argb(255, 166, 142, 114));
+            botonJugador2.setBackgroundColor(Color.parseColor(colorOscuro));
+            botonJugador2.setTextColor(Color.parseColor(colorClaro));
         }
         if(jugadorEnTurno==3){
-            botonJugador1.setBackgroundColor(Color.argb(255,216,193,148));
-            botonJugador1.setTextColor(Color.argb(255, 166, 142, 114));
-
-            botonJugador2.setBackgroundColor(Color.argb(255, 216, 193, 148));
-            botonJugador2.setTextColor(Color.argb(255, 166, 142, 114));
-
-            botonJugador3.setBackgroundColor(Color.argb(255, 166, 142, 114));
-            botonJugador3.setTextColor(Color.argb(255, 216, 193, 148));
-
-            botonJugador4.setBackgroundColor(Color.argb(255, 216, 193, 148));
-            botonJugador4.setTextColor(Color.argb(255, 166, 142, 114));
+            botonJugador3.setBackgroundColor(Color.parseColor(colorOscuro));
+            botonJugador3.setTextColor(Color.parseColor(colorClaro));
         }
         if(jugadorEnTurno==4){
-            botonJugador1.setBackgroundColor(Color.argb(255, 216, 193, 148));
-            botonJugador3.setTextColor(Color.argb(255, 166, 142, 114));
-
-            botonJugador2.setBackgroundColor(Color.argb(255,216,193,148));
-            botonJugador3.setTextColor(Color.argb(255, 166, 142, 114));
-
-            botonJugador3.setBackgroundColor(Color.argb(255,216,193,148));
-            botonJugador3.setTextColor(Color.argb(255,166,142,114));
-
-            botonJugador4.setBackgroundColor(Color.argb(255,166,142,114));
-            botonJugador4.setTextColor(Color.argb(255, 216, 193, 148));
+            botonJugador4.setBackgroundColor(Color.parseColor(colorOscuro));
+            botonJugador4.setTextColor(Color.parseColor(colorClaro));
         }
     }
 }
