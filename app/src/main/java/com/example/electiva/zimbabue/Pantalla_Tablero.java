@@ -33,6 +33,7 @@ public class Pantalla_Tablero extends AppCompatActivity {
     Button botonJugador2;
     Button botonJugador3;
     Button botonJugador4;
+    MediaPlayer soundGame;
 
     protected void onCreate(Bundle savedInstanceState) {
         MediaPlayer cuadro = MediaPlayer.create(this,R.raw.pop);
@@ -48,12 +49,14 @@ public class Pantalla_Tablero extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         //setContentView(R.layout.activity_pantalla_tablero_mono);
+
+        soundGame = MediaPlayer.create(this,R.raw.sound_juego);
+        soundGame.setLooping(true);
+        soundGame.start();
         ponerTema();
         cargarBotones();
         hacerVisibleBotonesJugadorEnTurno(cantidadDeJugadores);
         Intent intentAPreguntas = new Intent(Pantalla_Tablero.this, Pantalla_Preguntas.class);
-        intentAPreguntas.putExtra("preguntas", listaPreguntas);
-        intentAPreguntas.putExtra("jugadorEnTurno", jugadorEnTurno);
         startActivityForResult(intentAPreguntas, 1);
 
         //habilitarAlgunosBotones(Integer.parseInt(listaBotones.get(2).getText().toString()));
@@ -64,11 +67,11 @@ public class Pantalla_Tablero extends AppCompatActivity {
 
         cambiarDeJugadorEnInterfaz();
         if (requestCode == 1) {
-            if(resultCode == Activity.RESULT_OK){
-                int result=data.getIntExtra("result",-1);
-                if(result ==-1){
+            if (resultCode == Activity.RESULT_OK) {
+                int result = data.getIntExtra("result", -1);
+                if (result == -1) {
                     cambiarDeJugador();
-                }else{
+                } else {
                     habilitarAlgunosBotones(result);
                 }
 
@@ -77,6 +80,16 @@ public class Pantalla_Tablero extends AppCompatActivity {
                 //Write your code if there's no result
             }
         }
+        if (requestCode == 2) {
+            if (resultCode == Activity.RESULT_OK) {
+                soundGame.stop();
+                Intent intent = new Intent(Pantalla_Tablero.this, Pantalla_Inicio.class);
+                startActivity(intent);
+                finish();
+
+            }
+        }
+
     }
 
     public void ponerTema(){
@@ -130,6 +143,7 @@ public class Pantalla_Tablero extends AppCompatActivity {
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         // TODO Auto-generated method stub
         if (keyCode == event.KEYCODE_BACK) {
+            soundGame.stop();
             startActivity(new Intent(Pantalla_Tablero.this, Pantalla_Inicio.class));
            // Pantalla_Inicio.musicaFondo.release();
             finish();
@@ -138,6 +152,8 @@ public class Pantalla_Tablero extends AppCompatActivity {
     }
 
     public  void colocarEnLista(View Boton){
+        MediaPlayer pop = MediaPlayer.create(this,R.raw.pop);
+        pop.start();
         habilitarTodosLosBotones();
         context = getApplicationContext();
         int etiquetaDelBoton = Integer.parseInt(Boton.getTag().toString());
@@ -175,7 +191,11 @@ public class Pantalla_Tablero extends AppCompatActivity {
 
         Collections.sort(getListaJugadorEnTurno());
         if(verificarSiHayGanador(getListaJugadorEnTurno())){
-            Toast.makeText(context,"El ganador es: Jugador "+jugadorEnTurno,Toast.LENGTH_LONG).show();
+            //Toast.makeText(context,"El ganador es: Jugador "+jugadorEnTurno,Toast.LENGTH_LONG).show();
+            Intent intent  =  new Intent(Pantalla_Tablero.this,PopWin.class);
+            intent.putExtra("jugadorEnTurno", jugadorEnTurno);
+            startActivityForResult(intent, 2);
+            startActivity(intent);
         }if(!verificarSiHayGanador(getListaJugadorEnTurno())){
                 cambiarDeJugador();
         }
@@ -425,7 +445,7 @@ public class Pantalla_Tablero extends AppCompatActivity {
         ArrayList<Integer> listaOperando2 = new ArrayList<Integer>();
         int i = 0;
         while (i<64){
-            if(simboloOperacion.equals("-")||simboloOperacion.equals("+")||simboloOperacion.equals("/"))
+            if(simboloOperacion.equals("-")||simboloOperacion.equals("+"))
             {
                 int numeroRandom1 = (int) Math.floor(Math.random()*(35-4+1)+4);
                 listaOperando1.add(numeroRandom1);
@@ -434,9 +454,9 @@ public class Pantalla_Tablero extends AppCompatActivity {
             }
             if(simboloOperacion.equals("x"))
             {
-                int numeroRandom1 = (int) Math.floor(Math.random()*(10-1+1)+1);
+                int numeroRandom1 = (int) Math.floor(Math.random()*(10-2+1)+2);
                 listaOperando1.add(numeroRandom1);
-                int numeroRandom2 = (int) Math.floor(Math.random()*(10-1+1)+1);
+                int numeroRandom2 = (int) Math.floor(Math.random()*(10-2+1)+2);
                 listaOperando2.add(numeroRandom2);
             }
 
@@ -483,7 +503,7 @@ public class Pantalla_Tablero extends AppCompatActivity {
             for(int operando1:listaOperando1){
                 int operando2 = listaOperando2.get(i);
                 while(operando1%operando2 != 0){
-                    operando2 = (int) Math.floor(Math.random()*(10-1+1)+1);;
+                    operando2 = (int) Math.floor(Math.random()*(operando1-5+1)+5);;
                 }
                 int respuesta = hacerOperacion(operando1,operando2,"/");
                 Pregunta pregunta = new Pregunta(operando1,operando2,"/",respuesta);
