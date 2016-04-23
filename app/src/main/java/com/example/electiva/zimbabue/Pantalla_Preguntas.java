@@ -11,6 +11,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -59,19 +60,20 @@ public class Pantalla_Preguntas extends AppCompatActivity {
         startActivity(anuncioJugador);
         /**/
 
-        listaPreguntas =(ArrayList<Pregunta>)intent.getSerializableExtra("preguntas");
+        listaPreguntas =(ArrayList<Pregunta>) intent.getSerializableExtra("preguntas");
         timeOver = MediaPlayer.create(this,R.raw.timeover);
         preguntaRandom = getPreguntaRandom(listaPreguntas);
         listaRespuestas = getRespuestasRandom(listaPreguntas, preguntaRandom);
         yaEligioPregunta = false;
 //////////////////////////////////
+/*
         mShowingBack = false;
         if (savedInstanceState == null) {
             getFragmentManager()
                     .beginTransaction()
                     .add(R.id.relativeLayoutPregA, new CardFrontFragment())
                     .commit();
-        }
+        }*/
 //////////////////////////////////
     }
 
@@ -330,4 +332,15 @@ public class Pantalla_Preguntas extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        // TODO Auto-generated method stub
+        if (keyCode == event.KEYCODE_BACK) {
+
+            startActivity(new Intent(Pantalla_Preguntas.this, Pantalla_Inicio.class));
+            // Pantalla_Inicio.musicaFondo.release();
+            finish();
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 }

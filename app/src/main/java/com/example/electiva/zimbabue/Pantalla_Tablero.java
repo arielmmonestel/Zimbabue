@@ -57,6 +57,8 @@ public class Pantalla_Tablero extends AppCompatActivity {
         cargarBotones();
         hacerVisibleBotonesJugadorEnTurno(cantidadDeJugadores);
         Intent intentAPreguntas = new Intent(Pantalla_Tablero.this, Pantalla_Preguntas.class);
+        intentAPreguntas.putExtra("preguntas",listaPreguntas);
+        intentAPreguntas.putExtra("jugadorEnTurno",jugadorEnTurno);
         startActivityForResult(intentAPreguntas, 1);
 
         //habilitarAlgunosBotones(Integer.parseInt(listaBotones.get(2).getText().toString()));
