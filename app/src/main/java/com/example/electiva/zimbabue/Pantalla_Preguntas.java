@@ -180,6 +180,10 @@ public class Pantalla_Preguntas extends AppCompatActivity {
 
                 }else{
                     btnOpcionA.setBackground(getDrawable(R.drawable.fondo_opcion_incorrecta));
+                    Intent i = new Intent();
+                    i.putExtra("result", -1);
+                    setResult(Activity.RESULT_OK, i);
+                    finish();
                 }
                 break;
             case R.id.buttonOpcionB:
@@ -191,6 +195,10 @@ public class Pantalla_Preguntas extends AppCompatActivity {
                     finish();
                 }else{
                     btnOpcionB.setBackground(getDrawable(R.drawable.fondo_opcion_incorrecta));
+                    Intent i = new Intent();
+                    i.putExtra("result", -1);
+                    setResult(Activity.RESULT_OK, i);
+                    finish();
                 }
                 break;
             case R.id.buttonOpcionC:
@@ -202,6 +210,10 @@ public class Pantalla_Preguntas extends AppCompatActivity {
                     finish();
                 }else{
                     btnOpcionC.setBackground(getDrawable(R.drawable.fondo_opcion_incorrecta));
+                    Intent i = new Intent();
+                    i.putExtra("result", -1);
+                    setResult(Activity.RESULT_OK, i);
+                    finish();
                 }
         }
     }

@@ -74,7 +74,7 @@ public class Pantalla_Tablero extends AppCompatActivity {
             if(resultCode == Activity.RESULT_OK){
                 int result=data.getIntExtra("result",-1);
                 if(result ==-1){
-                    //Codigo cambiarJugadorAqui
+                    cambiarDeJugador();
                 }else{
                     habilitarAlgunosBotones(result);
                 }
