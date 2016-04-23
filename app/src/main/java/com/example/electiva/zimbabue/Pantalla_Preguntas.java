@@ -4,7 +4,9 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.content.Intent;
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -19,9 +21,10 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 public class Pantalla_Preguntas extends AppCompatActivity {
-
+    MediaPlayer timeOver ;
     public static ArrayList<Pregunta> listaPreguntas;
     public TextView textoPregunta1;
     public TextView textoPregunta2;
@@ -29,6 +32,7 @@ public class Pantalla_Preguntas extends AppCompatActivity {
     public Button btnOpcionA;
     public Button btnOpcionB;
     public Button btnOpcionC;
+    public TextView tiempo;
     public static Pregunta preguntaRandom;
     public static ArrayList<Integer> listaRespuestas;
     public static boolean yaEligioPregunta;
@@ -46,7 +50,7 @@ public class Pantalla_Preguntas extends AppCompatActivity {
         btnOpcionA = (Button) findViewById(R.id.buttonOpcionA);
         btnOpcionB = (Button) findViewById(R.id.buttonOpcionB);
         btnOpcionC = (Button) findViewById(R.id.buttonOpcionC);
-
+        tiempo = (TextView) findViewById(R.id.textView5);
         Intent intent = getIntent();
         /**/
         int jugadorEnTurno = intent.getIntExtra("jugadorEnTurno",-1);
@@ -56,12 +60,7 @@ public class Pantalla_Preguntas extends AppCompatActivity {
         /**/
 
         listaPreguntas =(ArrayList<Pregunta>)intent.getSerializableExtra("preguntas");
-        int j = 0;
-        for(Pregunta pregunta:listaPreguntas){
-            System.out.println(j+") "+"Pregunta LLEGADA: Cuanto es "+pregunta.getOperandoUno()+pregunta.getOperacion()+pregunta.getOperandoDos()+"? R/"+pregunta.getResultado());
-            j++;
-        }
-
+        timeOver = MediaPlayer.create(this,R.raw.timeover);
         preguntaRandom = getPreguntaRandom(listaPreguntas);
         listaRespuestas = getRespuestasRandom(listaPreguntas, preguntaRandom);
         yaEligioPregunta = false;
@@ -134,6 +133,7 @@ public class Pantalla_Preguntas extends AppCompatActivity {
 
     public void seleccionarPreguntaA(View v){
         if(!yaEligioPregunta){
+            comenzarACorrerTiempo();
             textoPregunta1.setText(construirPregunta(preguntaRandom));
             textoPregunta1.setTextSize(30);
 
@@ -146,6 +146,7 @@ public class Pantalla_Preguntas extends AppCompatActivity {
 
     public void seleccionarPreguntaB(View v){
         if(!yaEligioPregunta){
+            comenzarACorrerTiempo();
             textoPregunta2.setText(construirPregunta(preguntaRandom));
             textoPregunta2.setTextSize(30);
 
@@ -158,6 +159,7 @@ public class Pantalla_Preguntas extends AppCompatActivity {
 
     public void seleccionarPreguntaC(View v){
         if(!yaEligioPregunta) {
+            comenzarACorrerTiempo();
             textoPregunta3.setText(construirPregunta(preguntaRandom));
             textoPregunta3.setTextSize(30);
 
@@ -167,7 +169,13 @@ public class Pantalla_Preguntas extends AppCompatActivity {
             yaEligioPregunta = true;
         }
     }
+    public void comenzarACorrerTiempo(){
+        tiempo.setVisibility(View.VISIBLE);
+        tiempo.setText("10");
+        final CounterClass timer = new CounterClass(10000,1000);
+        timer.start();
 
+    }
     public void elegirRespuesta(View v){
         switch(v.getId()){
             case R.id.buttonOpcionA:
@@ -176,6 +184,8 @@ public class Pantalla_Preguntas extends AppCompatActivity {
                     Intent i = new Intent();
                     i.putExtra("result", preguntaRandom.getResultado());
                     setResult(Activity.RESULT_OK, i);
+                    MediaPlayer correct = MediaPlayer.create(this,R.raw.correct);
+                    correct.start();
                     finish();
 
                 }else{
@@ -183,6 +193,8 @@ public class Pantalla_Preguntas extends AppCompatActivity {
                     Intent i = new Intent();
                     i.putExtra("result", -1);
                     setResult(Activity.RESULT_OK, i);
+                    MediaPlayer wrong = MediaPlayer.create(this,R.raw.wrong);
+                    wrong.start();
                     finish();
                 }
                 break;
@@ -192,12 +204,16 @@ public class Pantalla_Preguntas extends AppCompatActivity {
                     Intent i = new Intent();
                     i.putExtra("result", preguntaRandom.getResultado());
                     setResult(Activity.RESULT_OK, i);
+                    MediaPlayer correct = MediaPlayer.create(this,R.raw.correct);
+                    correct.start();
                     finish();
                 }else{
                     btnOpcionB.setBackground(getDrawable(R.drawable.fondo_opcion_incorrecta));
                     Intent i = new Intent();
                     i.putExtra("result", -1);
                     setResult(Activity.RESULT_OK, i);
+                    MediaPlayer wrong = MediaPlayer.create(this,R.raw.wrong);
+                    wrong.start();
                     finish();
                 }
                 break;
@@ -207,12 +223,16 @@ public class Pantalla_Preguntas extends AppCompatActivity {
                     Intent i = new Intent();
                     i.putExtra("result", preguntaRandom.getResultado());
                     setResult(Activity.RESULT_OK, i);
+                    MediaPlayer correct = MediaPlayer.create(this,R.raw.correct);
+                    correct.start();
                     finish();
                 }else{
                     btnOpcionC.setBackground(getDrawable(R.drawable.fondo_opcion_incorrecta));
                     Intent i = new Intent();
                     i.putExtra("result", -1);
                     setResult(Activity.RESULT_OK, i);
+                    MediaPlayer wrong = MediaPlayer.create(this,R.raw.wrong);
+                    wrong.start();
                     finish();
                 }
         }
@@ -286,4 +306,28 @@ public class Pantalla_Preguntas extends AppCompatActivity {
         Pregunta preguntaElegida = listaDePreguntas.get(indiceAleatorio);
         return preguntaElegida;
     }
+    public class CounterClass extends CountDownTimer {
+        public CounterClass(long millisInfuture, long countDownInterval){
+            super(millisInfuture,countDownInterval);
+        }
+        public  void onTick(long millisUntilFinished){
+            long millis = millisUntilFinished;
+            String hms = String.format("%02d:%02d:%02d", TimeUnit.MILLISECONDS.toHours(millis),
+                    TimeUnit.MILLISECONDS.toMinutes(millis) - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(millis)),
+                    TimeUnit.MILLISECONDS.toSeconds(millis) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millis)));
+
+            tiempo.setText(hms);
+        }
+        public void onFinish(){
+            tiempo.setText("00:00:00");
+
+            timeOver.start();
+            Intent i = new Intent();
+            i.putExtra("result", -1);
+            setResult(Activity.RESULT_OK, i);
+            finish();
+        }
+
+    }
+
 }

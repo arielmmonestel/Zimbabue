@@ -23,7 +23,6 @@ import java.util.Random;
 
 public class Pantalla_Tablero extends AppCompatActivity {
 
-
     public static ArrayList<Integer> listaJugador1 ;
     public static ArrayList<Integer>  listaJugador2 ;
     public static ArrayList<Integer>  listaJugador3 ;
@@ -34,13 +33,12 @@ public class Pantalla_Tablero extends AppCompatActivity {
     public static int cantidadDeJugadores=0;
     public static String simboloOperacion ;
     public static int jugadorEnTurno;
+    MediaPlayer soundGame;
     public Context context ;
     Button botonJugador1;
     Button botonJugador2;
     Button botonJugador3;
     Button botonJugador4;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +54,9 @@ public class Pantalla_Tablero extends AppCompatActivity {
         jugadorEnTurno = 1;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pantalla_tablero);
+        soundGame = MediaPlayer.create(this,R.raw.sound_juego);
+        soundGame.setLooping(true);
+        soundGame.start();
         cargarBotones();
         hacerVisibleBotonesJugadorEnTurno(cantidadDeJugadores);
         Intent intentAPreguntas = new Intent(Pantalla_Tablero.this, Pantalla_Preguntas.class);
@@ -84,7 +85,19 @@ public class Pantalla_Tablero extends AppCompatActivity {
                 //Write your code if there's no result
             }
         }
+        if(requestCode ==2){
+
+            if(resultCode == Activity.RESULT_OK) {
+                soundGame.stop();
+                Intent intent= new Intent(Pantalla_Tablero.this,Pantalla_Inicio.class);
+                startActivity(intent);
+                finish();
+
+            }
+        }
     }
+
+
     public  static  void habilitarTodosLosBotones(){
         for (Button boton:listaBotones) {
             if(boton.isEnabled()==true){
@@ -117,10 +130,12 @@ public class Pantalla_Tablero extends AppCompatActivity {
             }
         }
     }
+
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         // TODO Auto-generated method stub
         if (keyCode == event.KEYCODE_BACK) {
+            soundGame.stop();
             startActivity(new Intent(Pantalla_Tablero.this, Pantalla_Inicio.class));
            // Pantalla_Inicio.musicaFondo.release();
             finish();
@@ -129,6 +144,8 @@ public class Pantalla_Tablero extends AppCompatActivity {
     }
 
     public  void colocarEnLista(View Boton){
+        MediaPlayer pop = MediaPlayer.create(this,R.raw.pop);
+        pop.start();
         habilitarTodosLosBotones();
         context = getApplicationContext();
         int etiquetaDelBoton = Integer.parseInt(Boton.getTag().toString());
@@ -166,9 +183,14 @@ public class Pantalla_Tablero extends AppCompatActivity {
 
         Collections.sort(getListaJugadorEnTurno());
         if(verificarSiHayGanador(getListaJugadorEnTurno())){
-            Toast.makeText(context,"El ganador es: Jugador "+jugadorEnTurno,Toast.LENGTH_LONG).show();
+           //Toast.makeText(context,"El ganador es: Jugador "+jugadorEnTurno,Toast.LENGTH_LONG).show();
+            Intent intent  =  new Intent(Pantalla_Tablero.this,PopWin.class);
+            intent.putExtra("jugadorEnTurno", jugadorEnTurno);
+            startActivityForResult(intent, 2);
+            startActivity(intent);
         }if(!verificarSiHayGanador(getListaJugadorEnTurno())){
-                cambiarDeJugador();
+               cambiarDeJugador();
+
         }
 
     }
@@ -185,6 +207,7 @@ public class Pantalla_Tablero extends AppCompatActivity {
             Boton.setBackgroundResource(R.drawable.btn_jugador_cuatro);
         }
     }
+
     public static boolean verificarSiHayGanador(ArrayList<Integer> listaJugadorEnTurno){
         boolean hayGanador = false;
 
@@ -206,6 +229,7 @@ public class Pantalla_Tablero extends AppCompatActivity {
 
         return hayGanador;
     }
+
     public static boolean hayCuatroEnLineaDiagonalSlash(ArrayList<Integer> listaJugadorEnTurno){
         boolean hayCuatroEnLineaSlash = false;
         int i = 0;
@@ -244,6 +268,7 @@ public class Pantalla_Tablero extends AppCompatActivity {
         return hayCuatroEnLineaSlash;
 
     }
+
     public static boolean hayCuatroEnLineaDiagonalBackSlash(ArrayList<Integer> listaJugadorEnTurno){
 
         boolean hayCuatroEnLineaBackSlash = false;
@@ -281,6 +306,7 @@ public class Pantalla_Tablero extends AppCompatActivity {
         }
         return hayCuatroEnLineaBackSlash;
     }
+
     public static boolean hayCuatroEnLineaVertical(ArrayList<Integer> listaJugadorEnTurno){
         boolean hayCuatroEnLineaVertical = false;
         int i = 0;
@@ -317,6 +343,7 @@ public class Pantalla_Tablero extends AppCompatActivity {
         }
         return hayCuatroEnLineaVertical;
     }
+
     public static boolean hayCuatroEnLineaHorizontal(ArrayList<Integer> listaJugadorEnTurno){
         boolean hayCuatroEnLineaHorizontal = false;
             int i = 0;
@@ -340,6 +367,7 @@ public class Pantalla_Tablero extends AppCompatActivity {
         }
         return hayCuatroEnLineaHorizontal;
     }
+
     public static Boolean botonEstaEnAlgunaLista(View boton){
         Boolean botonEstaEnLista = false;
         int idDelBoton = Integer.parseInt(boton.getTag().toString());
@@ -349,6 +377,7 @@ public class Pantalla_Tablero extends AppCompatActivity {
         if(listaJugador4.contains(idDelBoton)){botonEstaEnLista=true;}
         return botonEstaEnLista;
     }
+
     public void cambiarDeJugador(){
         if(jugadorEnTurno ==cantidadDeJugadores){
             jugadorEnTurno=1;
@@ -362,6 +391,7 @@ public class Pantalla_Tablero extends AppCompatActivity {
         intentAPreguntas.putExtra("jugadorEnTurno", jugadorEnTurno);
         startActivityForResult(intentAPreguntas, 1);
     }
+
     public static ArrayList<Integer> getListaJugadorEnTurno(){
         ArrayList<Integer> listaJugadorEnTurno = new ArrayList<>();
         if (jugadorEnTurno==1){
@@ -375,6 +405,7 @@ public class Pantalla_Tablero extends AppCompatActivity {
         }
         return listaJugadorEnTurno;
     }
+
     public static void crearListasDeJugadores(){
 
             listaJugador1 = new ArrayList<>() ;
@@ -387,6 +418,7 @@ public class Pantalla_Tablero extends AppCompatActivity {
             listaJugador4.clear();
 
     }
+
     public static void quitarBotonDeLaLista(View boton){
         int idDelBoton = Integer.parseInt(boton.getTag().toString());
 
@@ -407,6 +439,7 @@ public class Pantalla_Tablero extends AppCompatActivity {
 
             }
     }
+
     public static void crearPreguntas(){
 
         /*
@@ -416,7 +449,7 @@ public class Pantalla_Tablero extends AppCompatActivity {
         ArrayList<Integer> listaOperando2 = new ArrayList<Integer>();
         int i = 0;
         while (i<64){
-            if(simboloOperacion.equals("-")||simboloOperacion.equals("+")||simboloOperacion.equals("/"))
+            if(simboloOperacion.equals("-")||simboloOperacion.equals("+"))
             {
                 int numeroRandom1 = (int) Math.floor(Math.random()*(35-4+1)+4);
                 listaOperando1.add(numeroRandom1);
@@ -425,9 +458,16 @@ public class Pantalla_Tablero extends AppCompatActivity {
             }
             if(simboloOperacion.equals("x"))
             {
-                int numeroRandom1 = (int) Math.floor(Math.random()*(10-1+1)+1);
+                int numeroRandom1 = (int) Math.floor(Math.random()*(10-2+1)+2);
                 listaOperando1.add(numeroRandom1);
-                int numeroRandom2 = (int) Math.floor(Math.random()*(10-1+1)+1);
+                int numeroRandom2 = (int) Math.floor(Math.random()*(10-2+1)+2);
+                listaOperando2.add(numeroRandom2);
+            }
+            if(simboloOperacion.equals("/"))
+            {
+                int numeroRandom1 = (int) Math.floor(Math.random()*(200-25+1)+25);
+                listaOperando1.add(numeroRandom1);
+                int numeroRandom2 = (int) Math.floor(Math.random()*(100-5+1)+5);
                 listaOperando2.add(numeroRandom2);
             }
 
@@ -474,7 +514,7 @@ public class Pantalla_Tablero extends AppCompatActivity {
             for(int operando1:listaOperando1){
                 int operando2 = listaOperando2.get(i);
                 while(operando1%operando2 != 0){
-                    operando2 = (int) Math.floor(Math.random()*(10-1+1)+1);;
+                    operando2 = (int) Math.floor(Math.random()*(operando1-5+1)+5);
                 }
                 int respuesta = hacerOperacion(operando1,operando2,"/");
                 Pregunta pregunta = new Pregunta(operando1,operando2,"/",respuesta);
@@ -487,6 +527,7 @@ public class Pantalla_Tablero extends AppCompatActivity {
 
 
     }
+
     public static int hacerOperacion(int operando1,int operando2,String simbolo){
         int resultado = 0;
         if(simbolo.equals("+")){
@@ -503,6 +544,7 @@ public class Pantalla_Tablero extends AppCompatActivity {
         }
         return resultado;
     }
+
     public  void cargarBotones(){
         Button boton1 = (Button) findViewById(R.id.button1);
         listaBotones.add(boton1);
@@ -641,6 +683,7 @@ public class Pantalla_Tablero extends AppCompatActivity {
 
 
     }
+
     public void hacerVisibleBotonesJugadorEnTurno(int cantidadDeJugadores){
         botonJugador1 = (Button) findViewById(R.id.button);
         botonJugador2 = (Button) findViewById(R.id.button2);
@@ -650,6 +693,7 @@ public class Pantalla_Tablero extends AppCompatActivity {
         if(cantidadDeJugadores ==2){
             botonJugador3.setVisibility(View.INVISIBLE);
             botonJugador4.setVisibility(View.INVISIBLE);
+
         }
         if(cantidadDeJugadores ==3){
             botonJugador4.setVisibility(View.INVISIBLE);
