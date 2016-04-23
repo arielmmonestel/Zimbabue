@@ -46,9 +46,9 @@
         android:id="@+id/buttonDivision"
         android:background="@drawable/world4"
         android:onClick="abrirMundoDivision"
-        android:layout_alignBaseline="@+id/textViewSelectMundo"
-        android:layout_alignBottom="@+id/textViewSelectMundo"
-        android:layout_toStartOf="@+id/buttonSumas" />
+        android:layout_above="@+id/textViewSelectMundo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="57dp" />
 
     <TextView
         android:layout_width="wrap_content"

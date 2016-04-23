@@ -38,7 +38,6 @@ public class Pantalla_Inicio extends Activity {
         final Button botonAyuda = (Button) findViewById(R.id.buttonAyuda);
         //if (!musicaEstaCorriendo) {
 
-
             musicaFondo.setLooping(true);
             musicaFondo.start();
             musicaEstaCorriendo = true;
@@ -48,7 +47,6 @@ public class Pantalla_Inicio extends Activity {
             @Override
             public void onClick(View v) {
                 final Animation anrTl = AnimationUtils.loadAnimation(getBaseContext(), R.anim.rotate_from_right_to_left);
-                opc.start();
                 botonJugar.startAnimation(anrTl);
                 anrTl.setAnimationListener(new Animation.AnimationListener() {
                     @Override

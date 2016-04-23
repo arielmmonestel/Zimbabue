@@ -18,6 +18,7 @@
         </activity>
 
         <activity android:name= ".Pop" android:theme="@style/popTheme"></activity>
+        <activity android:name= ".PopWin" android:theme="@style/popTheme"></activity>
         <activity android:name=".Seleccionar_Mundo" />
         <activity android:name=".Cant_Jugadores" />
         <activity android:name=".Pantalla_Tablero" />
