@@ -287,7 +287,7 @@ public class Pantalla_Preguntas extends AppCompatActivity {
     }
 
     public String construirPregunta(Pregunta pregunta){
-        String preguntaEnTexto = String.valueOf(pregunta.getOperandoUno());
+        String preguntaEnTexto = String.valueOf(pregunta.getOperandoUno()) + "\n";
 
         if(pregunta.getOperacion().equals("+")){
             preguntaEnTexto += "+";
@@ -298,7 +298,7 @@ public class Pantalla_Preguntas extends AppCompatActivity {
         }else{
             preguntaEnTexto += "/";
         }
-        preguntaEnTexto += String.valueOf(pregunta.getOperandoDos());
+        preguntaEnTexto += "\n" + String.valueOf(pregunta.getOperandoDos());
         return preguntaEnTexto;
     }
 
