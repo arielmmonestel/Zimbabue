@@ -181,16 +181,18 @@ public class Pantalla_Preguntas extends AppCompatActivity {
     public void elegirRespuesta(View v){
         switch(v.getId()){
             case R.id.buttonOpcionA:
-                if(preguntaRandom.getResultado() == listaRespuestas.get(0)) {
-                    btnOpcionA.setBackground(getDrawable(R.drawable.fondo_opcion_correcta));
-                    Intent i = new Intent();
-                    i.putExtra("result", preguntaRandom.getResultado());
-                    setResult(Activity.RESULT_OK, i);
-                    MediaPlayer correct = MediaPlayer.create(this,R.raw.correct);
-                    correct.start();
-                    finish();
+                if(yaEligioPregunta){
+                    if(preguntaRandom.getResultado() == listaRespuestas.get(0)) {
+                        btnOpcionA.setBackground(getDrawable(R.drawable.fondo_opcion_correcta));
+                        Intent i = new Intent();
+                        i.putExtra("result", preguntaRandom.getResultado());
+                        setResult(Activity.RESULT_OK, i);
+                        MediaPlayer correct = MediaPlayer.create(this, R.raw.correct);
+                        correct.start();
+                        finish();
+                    }
 
-                }else{
+                else{
                     btnOpcionA.setBackground(getDrawable(R.drawable.fondo_opcion_incorrecta));
                     Intent i = new Intent();
                     i.putExtra("result", -1);
@@ -198,28 +200,30 @@ public class Pantalla_Preguntas extends AppCompatActivity {
                     MediaPlayer wrong = MediaPlayer.create(this,R.raw.wrong);
                     wrong.start();
                     finish();
-                }
+                }}
                 break;
             case R.id.buttonOpcionB:
-                if(preguntaRandom.getResultado() == listaRespuestas.get(1)) {
-                    btnOpcionB.setBackground(getDrawable(R.drawable.fondo_opcion_correcta));
-                    Intent i = new Intent();
-                    i.putExtra("result", preguntaRandom.getResultado());
-                    setResult(Activity.RESULT_OK, i);
-                    MediaPlayer correct = MediaPlayer.create(this,R.raw.correct);
-                    correct.start();
-                    finish();
-                }else{
-                    btnOpcionB.setBackground(getDrawable(R.drawable.fondo_opcion_incorrecta));
-                    Intent i = new Intent();
-                    i.putExtra("result", -1);
-                    setResult(Activity.RESULT_OK, i);
-                    MediaPlayer wrong = MediaPlayer.create(this,R.raw.wrong);
-                    wrong.start();
-                    finish();
+                if(yaEligioPregunta){
+                    if(preguntaRandom.getResultado() == listaRespuestas.get(1)) {
+                        btnOpcionB.setBackground(getDrawable(R.drawable.fondo_opcion_correcta));
+                        Intent i = new Intent();
+                        i.putExtra("result", preguntaRandom.getResultado());
+                        setResult(Activity.RESULT_OK, i);
+                        MediaPlayer correct = MediaPlayer.create(this,R.raw.correct);
+                        correct.start();
+                        finish();
+                    }else{
+                        btnOpcionB.setBackground(getDrawable(R.drawable.fondo_opcion_incorrecta));
+                        Intent i = new Intent();
+                        i.putExtra("result", -1);
+                        setResult(Activity.RESULT_OK, i);
+                        MediaPlayer wrong = MediaPlayer.create(this,R.raw.wrong);
+                        wrong.start();
+                        finish();}
                 }
                 break;
             case R.id.buttonOpcionC:
+                if(yaEligioPregunta){
                 if(preguntaRandom.getResultado() == listaRespuestas.get(2)) {
                     btnOpcionC.setBackground(getDrawable(R.drawable.fondo_opcion_correcta));
                     Intent i = new Intent();
@@ -236,7 +240,7 @@ public class Pantalla_Preguntas extends AppCompatActivity {
                     MediaPlayer wrong = MediaPlayer.create(this,R.raw.wrong);
                     wrong.start();
                     finish();
-                }
+                }}
         }
     }
 
