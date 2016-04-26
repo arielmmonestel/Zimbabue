@@ -36,25 +36,23 @@ public class Pantalla_Inicio extends Activity {
         final MediaPlayer opc = MediaPlayer.create(this, R.raw.elige);
         final Button botonJugar= (Button) findViewById(R.id.buttonJugar);
         final Button botonAyuda = (Button) findViewById(R.id.buttonAyuda);
-        //if (!musicaEstaCorriendo) {
+        musicaFondo.setLooping(true);
+        musicaFondo.start();
+        musicaEstaCorriendo = true;
 
-            musicaFondo.setLooping(true);
-            musicaFondo.start();
-            musicaEstaCorriendo = true;
-
-        //}
-        botonJugar.setOnClickListener(new View.OnClickListener() {
+// funcion que crea un intent hacia la ventana de Seleccionar Mundo una vez que se hace pop sobre "Jugar"
+       botonJugar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final Animation anrTl = AnimationUtils.loadAnimation(getBaseContext(), R.anim.rotate_from_right_to_left);
-                botonJugar.startAnimation(anrTl);
+                botonJugar.startAnimation(anrTl);//Animacion qe hace rotar el boton.
                 anrTl.setAnimationListener(new Animation.AnimationListener() {
                     @Override
                     public void onAnimationStart(Animation animation) {
 
                     }
 
-                    @Override
+                    @Override//cuando la animacion termina, se envia el intent
                     public void onAnimationEnd(Animation animation) {
                         finish();
                         startActivity(new Intent(Pantalla_Inicio.this, Seleccionar_Mundo.class));
@@ -67,6 +65,7 @@ public class Pantalla_Inicio extends Activity {
                 });
             }
         });
+        //Funcion que se activa una vez que se hace pop sobre el boton de ayuda, envia un intent a un documento publico en google drive.
         botonAyuda.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -96,13 +95,13 @@ public class Pantalla_Inicio extends Activity {
             }
         });
     }
-
+    //Apaga la musica
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        //musicaFondo.release();
-    }
 
+    }
+    //Resume la musica
     @Override
     protected void onResume() {
         super.onResume();
@@ -110,11 +109,11 @@ public class Pantalla_Inicio extends Activity {
         musicaFondo.start();
       }
     }
-
+    //Pausa la musica
     @Override
     protected void onPause() {
         super.onPause();
-      //  musicaFondo.pause();
+
     }
 
     public boolean onKeyDown(int keyCode, KeyEvent event) {

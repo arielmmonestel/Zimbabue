@@ -45,6 +45,7 @@ public class Pantalla_Tablero extends AppCompatActivity {
         System.out.println("Simbolo--------------------------------" + simboloOperacion);
         crearListasDeJugadores();
         crearPreguntas();
+        int i = 0;
         jugadorEnTurno = 1;
         super.onCreate(savedInstanceState);
 
@@ -61,9 +62,10 @@ public class Pantalla_Tablero extends AppCompatActivity {
         intentAPreguntas.putExtra("jugadorEnTurno",jugadorEnTurno);
         startActivityForResult(intentAPreguntas, 1);
 
-        //habilitarAlgunosBotones(Integer.parseInt(listaBotones.get(2).getText().toString()));
-    }
 
+    }
+    //recibe el resultado de la pantalla pregunta (code 1), si es -1 significa que se equivoco,sino significa
+    // que el jugador podra escoger una casilla del tablero.
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
@@ -74,6 +76,7 @@ public class Pantalla_Tablero extends AppCompatActivity {
                 if (result == -1) {
                     cambiarDeJugador();
                 } else {
+
                     habilitarAlgunosBotones(result);
                 }
 
@@ -93,7 +96,7 @@ public class Pantalla_Tablero extends AppCompatActivity {
         }
 
     }
-
+    //Coloca el tema en el Frame dependiendo del mundo en el que esta jugando (ya sea suma,resta, multiplicacion o division)
     public void ponerTema(){
         if(simboloOperacion.equals("+")){
             setContentView(R.layout.activity_pantalla_tablero_mono);
@@ -107,8 +110,9 @@ public class Pantalla_Tablero extends AppCompatActivity {
             Log.e("ERROR()", "NO HAY TEMA");
         }
 
-    }
 
+    }
+// habilita todos los botones despues de haber escogido una casilla
     public  static  void habilitarTodosLosBotones(){
         for (Button boton:listaBotones) {
             if(boton.isEnabled()==true){
@@ -126,7 +130,7 @@ public class Pantalla_Tablero extends AppCompatActivity {
 
         }
     }
-
+//Habilita solo los botones que tengan el numero que el usuario haya respondido correctamente.
     public static void habilitarAlgunosBotones(int numeroBoton){
          ;
         for (Button boton:listaBotones) {
@@ -146,13 +150,14 @@ public class Pantalla_Tablero extends AppCompatActivity {
         // TODO Auto-generated method stub
         if (keyCode == event.KEYCODE_BACK) {
             soundGame.stop();
-            startActivity(new Intent(Pantalla_Tablero.this, Pantalla_Inicio.class));
-           // Pantalla_Inicio.musicaFondo.release();
+            listaPreguntas.clear();
             finish();
+            startActivity(new Intent(Pantalla_Tablero.this, Pantalla_Inicio.class));
+            // Pantalla_Inicio.musicaFondo.release();
         }
         return super.onKeyDown(keyCode, event);
     }
-
+//Esta es la funcion "onClick()" de los botones del tablero.. guarda en listas los botones que tenga cada jugador, y verifica si hay ganador
     public  void colocarEnLista(View Boton){
         MediaPlayer pop = MediaPlayer.create(this,R.raw.pop);
         pop.start();
@@ -197,13 +202,13 @@ public class Pantalla_Tablero extends AppCompatActivity {
             Intent intent  =  new Intent(Pantalla_Tablero.this,PopWin.class);
             intent.putExtra("jugadorEnTurno", jugadorEnTurno);
             startActivityForResult(intent, 2);
-            startActivity(intent);
+
         }if(!verificarSiHayGanador(getListaJugadorEnTurno())){
                 cambiarDeJugador();
         }
 
     }
-
+//Coloca el boton en la lista dependiendo el jugador que este en su turno
     public static void colocarBotonSegunJugador(View Boton,int jugadorEnTurno){
 
         if(jugadorEnTurno==1){
@@ -216,6 +221,7 @@ public class Pantalla_Tablero extends AppCompatActivity {
             Boton.setBackgroundResource(R.drawable.btn_jugador_cuatro);
         }
     }
+    //verifica si hay ganador ya sea de forma horizontal, vertical o diagonalmente
     public static boolean verificarSiHayGanador(ArrayList<Integer> listaJugadorEnTurno){
         boolean hayGanador = false;
 
@@ -237,6 +243,7 @@ public class Pantalla_Tablero extends AppCompatActivity {
 
         return hayGanador;
     }
+    //Verifica si hay cuaatro en linea de forma diagonal  /
     public static boolean hayCuatroEnLineaDiagonalSlash(ArrayList<Integer> listaJugadorEnTurno){
         boolean hayCuatroEnLineaSlash = false;
         int i = 0;
@@ -275,6 +282,7 @@ public class Pantalla_Tablero extends AppCompatActivity {
         return hayCuatroEnLineaSlash;
 
     }
+    //Verifica si hay cuaatro en linea de forma diagonal  \
     public static boolean hayCuatroEnLineaDiagonalBackSlash(ArrayList<Integer> listaJugadorEnTurno){
 
         boolean hayCuatroEnLineaBackSlash = false;
@@ -312,6 +320,7 @@ public class Pantalla_Tablero extends AppCompatActivity {
         }
         return hayCuatroEnLineaBackSlash;
     }
+    //Verifica si hay cuaatro en linea de forma vertical |
     public static boolean hayCuatroEnLineaVertical(ArrayList<Integer> listaJugadorEnTurno){
         boolean hayCuatroEnLineaVertical = false;
         int i = 0;
@@ -348,6 +357,7 @@ public class Pantalla_Tablero extends AppCompatActivity {
         }
         return hayCuatroEnLineaVertical;
     }
+    //Verifica si hay cuaatro en linea de forma horizontal ----
     public static boolean hayCuatroEnLineaHorizontal(ArrayList<Integer> listaJugadorEnTurno){
         boolean hayCuatroEnLineaHorizontal = false;
             int i = 0;
@@ -370,7 +380,7 @@ public class Pantalla_Tablero extends AppCompatActivity {
             }
         }
         return hayCuatroEnLineaHorizontal;
-    }
+    }//Verifica si el boton clikeado esta en una lista previamente.
     public static Boolean botonEstaEnAlgunaLista(View boton){
         Boolean botonEstaEnLista = false;
         int idDelBoton = Integer.parseInt(boton.getTag().toString());
@@ -380,6 +390,7 @@ public class Pantalla_Tablero extends AppCompatActivity {
         if(listaJugador4.contains(idDelBoton)){botonEstaEnLista=true;}
         return botonEstaEnLista;
     }
+    //mantiene la consistencia del orden de los jugadorea
     public void cambiarDeJugador(){
         if(jugadorEnTurno ==cantidadDeJugadores){
             jugadorEnTurno=1;
@@ -393,6 +404,7 @@ public class Pantalla_Tablero extends AppCompatActivity {
         intentAPreguntas.putExtra("jugadorEnTurno", jugadorEnTurno);
         startActivityForResult(intentAPreguntas, 1);
     }
+    //Returna la lista del jugador que esta en turno para poder evaluar si hay ganador;
     public static ArrayList<Integer> getListaJugadorEnTurno(){
         ArrayList<Integer> listaJugadorEnTurno = new ArrayList<>();
         if (jugadorEnTurno==1){
@@ -406,6 +418,7 @@ public class Pantalla_Tablero extends AppCompatActivity {
         }
         return listaJugadorEnTurno;
     }
+    //Crea las listas de los jugadores, esto dependiendo de la cantidad de jugadores
     public static void crearListasDeJugadores(){
 
             listaJugador1 = new ArrayList<>() ;
@@ -418,6 +431,7 @@ public class Pantalla_Tablero extends AppCompatActivity {
             listaJugador4.clear();
 
     }
+    //quita el boton de la lista de un jugador, esto para ponerselo a otro en caso de que se "Robe " un elemento del tablero
     public static void quitarBotonDeLaLista(View boton){
         int idDelBoton = Integer.parseInt(boton.getTag().toString());
 
@@ -438,6 +452,7 @@ public class Pantalla_Tablero extends AppCompatActivity {
 
             }
     }
+    //Funcion que crea las pregunta, dependiendo del tipo de operacion que sea ....
     public static void crearPreguntas(){
 
         /*
@@ -446,6 +461,9 @@ public class Pantalla_Tablero extends AppCompatActivity {
         ArrayList<Integer> listaOperando1 = new ArrayList<Integer>();
         ArrayList<Integer> listaOperando2 = new ArrayList<Integer>();
         int i = 0;
+        if(listaPreguntas.size()!=0){
+            listaPreguntas.clear();
+        }
         while (i<64){
             if(simboloOperacion.equals("-")||simboloOperacion.equals("+"))
             {
@@ -459,6 +477,12 @@ public class Pantalla_Tablero extends AppCompatActivity {
                 int numeroRandom1 = (int) Math.floor(Math.random()*(10-2+1)+2);
                 listaOperando1.add(numeroRandom1);
                 int numeroRandom2 = (int) Math.floor(Math.random()*(10-2+1)+2);
+                listaOperando2.add(numeroRandom2);
+            }
+            if(simboloOperacion.equals("/")){
+                int numeroRandom1 = (int) Math.floor(Math.random()*(200-50+1)+50);
+                listaOperando1.add(numeroRandom1);
+                int numeroRandom2 = (int) Math.floor(Math.random()*(numeroRandom1-5+1)+5);
                 listaOperando2.add(numeroRandom2);
             }
 
@@ -504,7 +528,8 @@ public class Pantalla_Tablero extends AppCompatActivity {
             i=0;
             for(int operando1:listaOperando1){
                 int operando2 = listaOperando2.get(i);
-                while(operando1%operando2 != 0){
+                while(operando1%operando2 != 0 ||operando1/operando2==1){
+                    operando1 = (int) Math.floor(Math.random()*(200-10+1)+10);;
                     operando2 = (int) Math.floor(Math.random()*(operando1-5+1)+5);;
                 }
                 int respuesta = hacerOperacion(operando1,operando2,"/");
@@ -518,6 +543,8 @@ public class Pantalla_Tablero extends AppCompatActivity {
 
 
     }
+
+    //returna el resultado de operar 2 numeros
     public static int hacerOperacion(int operando1,int operando2,String simbolo){
         int resultado = 0;
         if(simbolo.equals("+")){
@@ -534,6 +561,8 @@ public class Pantalla_Tablero extends AppCompatActivity {
         }
         return resultado;
     }
+
+    //carga los botones en una lista para manipularlos en la interfaz grafica
     public  void cargarBotones(){
         Button boton1 = (Button) findViewById(R.id.button1);
         listaBotones.add(boton1);
@@ -671,7 +700,7 @@ public class Pantalla_Tablero extends AppCompatActivity {
         }
 
 
-    }
+    }//Esconde los botones de los jugadores que no sean tomados en cuenta
     public void hacerVisibleBotonesJugadorEnTurno(int cantidadDeJugadores){
         botonJugador1 = (Button) findViewById(R.id.button);
         botonJugador2 = (Button) findViewById(R.id.button2);
@@ -687,7 +716,7 @@ public class Pantalla_Tablero extends AppCompatActivity {
         }
 
     }
-
+    //Cambia de color los botones de arriba, para identificar al jugador en turno
     public void cambiarDeJugadorEnInterfaz(){
 
         String colorOscuro = "#000000";

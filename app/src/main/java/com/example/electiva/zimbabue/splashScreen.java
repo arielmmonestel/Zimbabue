@@ -10,6 +10,7 @@ import android.widget.ImageView;
 
 /**
  * Created by ariel on 21/3/2016.
+ * en esta clase se crea el splash screen con el logo del TEC el cual se muestra al inicio del juego
  */
 public class splashScreen extends Activity {
     public static MediaPlayer musicaLogo;

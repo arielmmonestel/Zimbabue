@@ -3,6 +3,7 @@ import java.io.Serializable;
 
 /**
  * Created by ariel on 17/4/2016.
+ * Esta clase es la utilizada para guardar las preguntas de forma dinamica, tiene los operandos y el tipo de oepracion que se hara con ellos
  */
 public class Pregunta implements Serializable {
     private int operandoUno;

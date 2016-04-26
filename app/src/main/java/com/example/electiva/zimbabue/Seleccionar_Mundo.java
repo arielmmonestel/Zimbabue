@@ -22,28 +22,28 @@ public class Seleccionar_Mundo extends Activity {
         TextView myTexto = (TextView) findViewById(R.id.textViewSelectMundo);
         myTexto.setTypeface(texto);
     }
-
+//Metodo que crea un intent a la ventana para seleccionar jugadores, envia ademas el tipo de operacion suma
     public void abrirMundoSuma(View v){
         MediaPlayer sonad = MediaPlayer.create(this,R.raw.bongo);
         sonad.start();
         startActivity(new Intent(Seleccionar_Mundo.this, Cant_Jugadores.class).putExtra("SimboloOperacion","+"));
         finish();
     }
-
+    //Metodo que crea un intent a la ventana para seleccionar jugadores, envia ademas el tipo de operacion resta
     public void abrirMundoResta(View v){
         MediaPlayer sonad = MediaPlayer.create(this,R.raw.bongo);
         sonad.start();
         startActivity(new Intent(Seleccionar_Mundo.this, Cant_Jugadores.class).putExtra("SimboloOperacion","-"));
         finish();
     }
-
+    //Metodo que crea un intent a la ventana para seleccionar jugadores, envia ademas el tipo de operacion multiplicacion
     public void abrirMundoMultiplicacion(View v){
         MediaPlayer sonad = MediaPlayer.create(this,R.raw.bongo);
         sonad.start();
         startActivity(new Intent(Seleccionar_Mundo.this, Cant_Jugadores.class).putExtra("SimboloOperacion","x"));
         finish();
     }
-
+    //Metodo que crea un intent a la ventana para seleccionar jugadores, envia ademas el tipo de operacion division
     public void abrirMundoDivision(View v){
         MediaPlayer sonad = MediaPlayer.create(this,R.raw.bongo);
         sonad.start();

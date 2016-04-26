@@ -21,12 +21,10 @@ public class Cant_Jugadores extends Activity {
         Intent intent = getIntent();
         Bundle otrasVariables = intent.getExtras();
         simboloOperacion = otrasVariables.getString("SimboloOperacion","-1");
-        System.out.println("SIMBOLO OPERACION EN VENTANA CANT JUGADOREs" + simboloOperacion);
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_cant_jugador);
-
-        Typeface texto = Typeface.createFromAsset(getAssets(),"zoo.otf");
+        Typeface texto = Typeface.createFromAsset(getAssets(),"zoo.otf"); //settea el font-family
         TextView myTexto = (TextView) findViewById(R.id.textViewCantJugadores);
         myTexto.setTypeface(texto);
 
@@ -34,7 +32,7 @@ public class Cant_Jugadores extends Activity {
         final Button Jugador2 = (Button) findViewById(R.id.Jugador2);
         final Button Jugador3 = (Button) findViewById(R.id.Jugador3);
         final Button Jugador4 = (Button) findViewById(R.id.Jugador4);
-
+        //este es el listener para cuando se escogen dos jugadores..se envia un intent con un string de cantidadJugadores = 2;
         Jugador2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,7 +62,7 @@ public class Cant_Jugadores extends Activity {
                 });
             }
         });
-
+        //este es el listener para cuando se escogen tres jugadores..se envia un intent con un string de cantidadJugadores = 3;
         Jugador3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -94,7 +92,7 @@ public class Cant_Jugadores extends Activity {
                 });
             }
         });
-
+        //este es el listener para cuando se escogen dos jugadores..se envia un intent con un string de cantidadJugadores = 4;
         Jugador4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
