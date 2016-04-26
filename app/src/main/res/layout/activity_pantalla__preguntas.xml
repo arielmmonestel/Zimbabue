@@ -16,7 +16,7 @@
 
 
         <RelativeLayout
-            android:layout_width="100dp"
+            android:layout_width="95dp"
             android:layout_height="140dp"
             android:background="@drawable/fondo_carta"
             android:layout_marginLeft="20dp"
@@ -39,7 +39,7 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_width="100dp"
+            android:layout_width="95dp"
             android:layout_height="140dp"
             android:background="@drawable/fondo_carta"
             android:layout_marginLeft="20dp"
@@ -64,7 +64,7 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_width="100dp"
+            android:layout_width="95dp"
             android:layout_height="140dp"
             android:background="@drawable/fondo_carta"
             android:layout_marginLeft="20dp"

@@ -13,17 +13,16 @@
     <Button
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:text="+"
         android:id="@+id/buttonSumas"
         android:background="@drawable/world1"
         android:onClick="abrirMundoSuma"
         android:layout_centerVertical="true"
-        android:layout_alignEnd="@+id/textViewSelectMundo" />
+        android:layout_alignEnd="@+id/textViewSelectMundo"
+        android:layout_alignParentEnd="false" />
 
     <Button
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:text="-"
         android:id="@+id/buttonRestas"
         android:background="@drawable/world2"
         android:onClick="abrirMundoResta"
@@ -33,7 +32,6 @@
     <Button
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:text="x"
         android:id="@+id/buttonMultiplicacion"
         android:background="@drawable/world3"
         android:onClick="abrirMundoMultiplicacion"
@@ -60,6 +58,42 @@
         android:textColor="#000000"
         android:background="@drawable/fondo_titulo_cantjugadores"
         android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView2"
+        android:background="@drawable/resta"
+        android:layout_above="@+id/buttonRestas"
+        android:layout_toEndOf="@+id/buttonDivision" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView3"
+        android:background="@drawable/suma"
+        android:layout_above="@+id/buttonSumas"
+        android:layout_alignEnd="@+id/buttonSumas" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView4"
+        android:background="@drawable/multi"
+        android:layout_alignTop="@+id/buttonDivision"
+        android:layout_alignStart="@+id/textViewSelectMundo"
+        android:layout_marginTop="28dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView5"
+        android:background="@drawable/div"
+        android:paddingBottom="20dp"
+        android:paddingRight="12dp"
+        android:layout_above="@+id/imageView3"
         android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
