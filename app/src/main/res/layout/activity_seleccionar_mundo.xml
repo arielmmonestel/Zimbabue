@@ -11,36 +11,36 @@
     android:background="@drawable/mundo">
 
     <Button
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:id="@+id/buttonSumas"
         android:background="@drawable/world1"
         android:onClick="abrirMundoSuma"
         android:layout_centerVertical="true"
-        android:layout_alignEnd="@+id/textViewSelectMundo"
-        android:layout_alignParentEnd="false" />
+        android:layout_alignStart="@+id/imageView5" />
 
     <Button
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:id="@+id/buttonRestas"
         android:background="@drawable/world2"
         android:onClick="abrirMundoResta"
-        android:layout_above="@+id/buttonMultiplicacion"
-        android:layout_alignStart="@+id/buttonSumas" />
+        android:layout_marginTop="63dp"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/buttonDivision" />
 
     <Button
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:id="@+id/buttonMultiplicacion"
         android:background="@drawable/world3"
         android:onClick="abrirMundoMultiplicacion"
-        android:layout_above="@+id/buttonSumas"
-        android:layout_alignStart="@+id/textViewSelectMundo" />
+        android:layout_below="@+id/buttonRestas"
+        android:layout_toStartOf="@+id/imageView5" />
 
     <Button
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:id="@+id/buttonDivision"
         android:background="@drawable/world4"
         android:onClick="abrirMundoDivision"
@@ -54,7 +54,7 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Selecciona un mundo"
         android:id="@+id/textViewSelectMundo"
-        android:textSize="19dp"
+        android:textSize="45dp"
         android:textColor="#000000"
         android:background="@drawable/fondo_titulo_cantjugadores"
         android:layout_alignParentBottom="true"
@@ -62,33 +62,34 @@
 
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
         android:id="@+id/imageView2"
         android:background="@drawable/resta"
-        android:layout_above="@+id/buttonRestas"
-        android:layout_toEndOf="@+id/buttonDivision" />
+        android:layout_alignTop="@+id/buttonRestas"
+        android:layout_toStartOf="@+id/buttonRestas" />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:id="@+id/imageView3"
         android:background="@drawable/suma"
-        android:layout_above="@+id/buttonSumas"
-        android:layout_alignEnd="@+id/buttonSumas" />
+        android:layout_alignBottom="@+id/buttonMultiplicacion"
+        android:layout_toEndOf="@+id/buttonSumas" />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:id="@+id/imageView4"
         android:background="@drawable/multi"
         android:layout_alignTop="@+id/buttonDivision"
-        android:layout_alignStart="@+id/textViewSelectMundo"
-        android:layout_marginTop="28dp" />
+        android:layout_alignStart="@+id/buttonMultiplicacion"
+        android:layout_marginTop="46dp" />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:paddingLeft="10dp"
         android:id="@+id/imageView5"
         android:background="@drawable/div"
         android:paddingBottom="20dp"
